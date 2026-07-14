@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 51 · B&amp;B Week 1 · Part 2 — Practice Quiz</title>
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🧠&lt;/text&gt;&lt;/svg&gt;">
+
+    <!-- Umami Analytics — replace website-id with your quiz site ID when ready -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR-QUIZ-WEBSITE-ID"></script>
+
+    <style>
+    /* ============================================================
+       BASE TOKENS  (shared with the B&B directory)
+    ============================================================ */
+    :root {
+        --transition-speed: 0.3s;
+        --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        --font-mono: 'Courier New', Courier, monospace;
+        --sidebar-width: 288px;
+        --header-h: 56px;
+        --header-height: 56px;
+        --radius: 14px;
+    }
+/* Navy (default) — matches the Quiz Library */
+    [data-theme="navy"] {
+        --bg-body: #0b1430;
+        --bg-card: #13203f;
+        --bg-card-hover: #1a2a4f;
+        --bg-header: rgba(11,20,48,0.86);
+        --bg-sidebar: rgba(14,24,56,0.72);
+        --bg-input: #1a2a4f;
+        --bg-active: rgba(110,168,254,0.2);
+        --bg-hover: rgba(110,168,254,0.1);
+        --text-main: #eef2fb;
+        --topic-color: #ffffff;
+        --text-muted: #93a0c0;
+        --text-accent: #6ea8fe;
+        --text-accent-2: #7ee0d0;
+        --border-color: rgba(110,168,254,0.3);
+        --border-subtle: rgba(255,255,255,0.08);
+        --button-bg: #6ea8fe;
+        --button-text: #08101f;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #93a0c0;
+        --btn-disabled-border: rgba(255,255,255,0.16);
+        --live-dot: #34d399;
+        --part-1: #6ea8fe;
+        --part-2: #38bdf8;
+        --part-3: #34d399;
+        --part-4: #fb923c;
+        --solid-accent: #6ea8fe;
+        --neural-rgb: 110,168,254;
+        --card-glow: rgba(110,168,254,0.35);
+        --select-bg: #1a2a4f;
+        --select-text: #eef2fb;
+        --hero-glow-1: rgba(110,168,254,0.22);
+        --hero-glow-2: rgba(126,224,208,0.14);
+    }
+
+    /* Charcoal — neutral warm-gray dark */
+    [data-theme="charcoal"] {
+        --bg-body: #15171c;
+        --bg-card: #1f232b;
+        --bg-card-hover: #262b35;
+        --bg-header: rgba(21,23,28,0.86);
+        --bg-sidebar: rgba(25,28,34,0.72);
+        --bg-input: #262b35;
+        --bg-active: rgba(224,169,109,0.18);
+        --bg-hover: rgba(224,169,109,0.1);
+        --text-main: #ecedf0;
+        --topic-color: #ffffff;
+        --text-muted: #959aa6;
+        --text-accent: #e0a96d;
+        --text-accent-2: #9fd0c0;
+        --border-color: rgba(224,169,109,0.3);
+        --border-subtle: rgba(255,255,255,0.07);
+        --button-bg: #e0a96d;
+        --button-text: #1a1409;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #959aa6;
+        --btn-disabled-border: rgba(255,255,255,0.15);
+        --live-dot: #6fcf97;
+        --part-1: #e0a96d;
+        --part-2: #9fd0c0;
+        --part-3: #84b6c9;
+        --part-4: #d39ab0;
+        --solid-accent: #e0a96d;
+        --neural-rgb: 224,169,109;
+        --card-glow: rgba(224,169,109,0.3);
+        --select-bg: #262b35;
+        --select-text: #ecedf0;
+        --hero-glow-1: rgba(224,169,109,0.14);
+        --hero-glow-2: rgba(159,208,192,0.1);
+    }
+
+    /* Slate — blue-gray */
+    [data-theme="slate"] {
+        --bg-body: #1e293b;
+        --bg-card: #334155;
+        --bg-card-hover: #3d4c63;
+        --bg-header: rgba(15,23,42,0.86);
+        --bg-sidebar: rgba(20,30,48,0.78);
+        --bg-input: #2c3a50;
+        --bg-active: rgba(56,189,248,0.2);
+        --bg-hover: rgba(56,189,248,0.1);
+        --text-main: #f1f5f9;
+        --topic-color: #ffffff;
+        --text-muted: #94a3b8;
+        --text-accent: #38bdf8;
+        --text-accent-2: #5eead4;
+        --border-color: rgba(56,189,248,0.3);
+        --border-subtle: rgba(148,163,184,0.18);
+        --button-bg: #38bdf8;
+        --button-text: #0f172a;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #94a3b8;
+        --btn-disabled-border: rgba(148,163,184,0.25);
+        --live-dot: #34d399;
+        --part-1: #38bdf8;
+        --part-2: #818cf8;
+        --part-3: #34d399;
+        --part-4: #fb923c;
+        --solid-accent: #38bdf8;
+        --neural-rgb: 56,189,248;
+        --card-glow: rgba(56,189,248,0.35);
+        --select-bg: #2c3a50;
+        --select-text: #f1f5f9;
+        --hero-glow-1: rgba(56,189,248,0.26);
+        --hero-glow-2: rgba(129,140,248,0.18);
+    }
+
+    /* Plum — deep purple */
+    [data-theme="plum"] {
+        --bg-body: #16131f;
+        --bg-card: #221c30;
+        --bg-card-hover: #2c2440;
+        --bg-header: rgba(18,15,26,0.86);
+        --bg-sidebar: rgba(27,22,40,0.75);
+        --bg-input: #2a2338;
+        --bg-active: rgba(196,176,255,0.22);
+        --bg-hover: rgba(196,176,255,0.12);
+        --text-main: #f3f0fa;
+        --topic-color: #ffffff;
+        --text-muted: #9c92b3;
+        --text-accent: #c4b0ff;
+        --text-accent-2: #5eead4;
+        --border-color: rgba(196,176,255,0.3);
+        --border-subtle: rgba(196,176,255,0.12);
+        --button-bg: #a78bfa;
+        --button-text: #14101f;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #9c92b3;
+        --btn-disabled-border: rgba(196,176,255,0.18);
+        --live-dot: #34d399;
+        --part-1: #c4b0ff;
+        --part-2: #38bdf8;
+        --part-3: #34d399;
+        --part-4: #fb923c;
+        --solid-accent: #c4b0ff;
+        --neural-rgb: 196,176,255;
+        --card-glow: rgba(196,176,255,0.32);
+        --select-bg: #2a2338;
+        --select-text: #f3f0fa;
+        --hero-glow-1: rgba(124,58,237,0.24);
+        --hero-glow-2: rgba(56,189,248,0.12);
+    }
+
+    /* Forest — deep green */
+    [data-theme="forest"] {
+        --bg-body: #0d1a14;
+        --bg-card: #142620;
+        --bg-card-hover: #1b322a;
+        --bg-header: rgba(13,26,20,0.86);
+        --bg-sidebar: rgba(16,32,26,0.75);
+        --bg-input: #1b322a;
+        --bg-active: rgba(94,217,154,0.2);
+        --bg-hover: rgba(94,217,154,0.1);
+        --text-main: #e9f3ec;
+        --topic-color: #ffffff;
+        --text-muted: #8aa899;
+        --text-accent: #5ed99a;
+        --text-accent-2: #a7e8d0;
+        --border-color: rgba(94,217,154,0.3);
+        --border-subtle: rgba(143,209,179,0.12);
+        --button-bg: #5ed99a;
+        --button-text: #08160f;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #8aa899;
+        --btn-disabled-border: rgba(143,209,179,0.2);
+        --live-dot: #5ed99a;
+        --part-1: #5ed99a;
+        --part-2: #6ea8fe;
+        --part-3: #a7e8d0;
+        --part-4: #fbbf24;
+        --solid-accent: #5ed99a;
+        --neural-rgb: 94,217,154;
+        --card-glow: rgba(94,217,154,0.3);
+        --select-bg: #1b322a;
+        --select-text: #e9f3ec;
+        --hero-glow-1: rgba(94,217,154,0.18);
+        --hero-glow-2: rgba(167,232,208,0.12);
+    }
+
+    /* Midnight */
+    [data-theme="midnight"] {
+        --bg-body: #000000;
+        --bg-card: #0a0b12;
+        --bg-card-hover: #11131d;
+        --bg-header: rgba(0,0,0,0.85);
+        --bg-sidebar: rgba(4,5,9,0.78);
+        --bg-input: #0c0e16;
+        --bg-active: rgba(129,140,248,0.16);
+        --bg-hover: rgba(129,140,248,0.07);
+        --text-main: #d6dae3;
+        --topic-color: #d6dae3;
+        --text-muted: #6b7280;
+        --text-accent: #818cf8;
+        --text-accent-2: #67e8f9;
+        --border-color: rgba(129,140,248,0.22);
+        --border-subtle: rgba(255,255,255,0.05);
+        --button-bg: #4f46e5;
+        --button-text: #ffffff;
+        --btn-disabled-bg: rgba(255,255,255,0.03);
+        --btn-disabled-text: #5b6170;
+        --btn-disabled-border: rgba(255,255,255,0.08);
+        --live-dot: #34d399;
+        --part-1: #818cf8;
+        --part-2: #67e8f9;
+        --part-3: #4ade80;
+        --part-4: #fbbf24;
+        --solid-accent: #818cf8;
+        --neural-rgb: 129,140,248;
+        --card-glow: rgba(129,140,248,0.22);
+        --select-bg: #0c0e16;
+        --select-text: #d6dae3;
+        --hero-glow-1: rgba(79,70,229,0.25);
+        --hero-glow-2: rgba(103,232,249,0.12);
+    }
+
+    /* Modern Light */
+    [data-theme="light"] {
+        --bg-body: #eef2fb;
+        --bg-card: #ffffff;
+        --bg-card-hover: #f6f8ff;
+        --bg-header: rgba(238,242,251,0.9);
+        --bg-sidebar: rgba(255,255,255,0.7);
+        --bg-input: #f3f6fd;
+        --bg-active: rgba(37,99,235,0.1);
+        --bg-hover: rgba(37,99,235,0.05);
+        --text-main: #16203a;
+        --topic-color: #16203a;
+        --text-muted: #5a6685;
+        --text-accent: #2563eb;
+        --text-accent-2: #0891b2;
+        --border-color: rgba(37,99,235,0.18);
+        --border-subtle: rgba(20,40,90,0.1);
+        --button-bg: #2563eb;
+        --button-text: #ffffff;
+        --btn-disabled-bg: #eef1f7;
+        --btn-disabled-text: #9099ab;
+        --btn-disabled-border: #d4dae6;
+        --live-dot: #16a34a;
+        --part-1: #2563eb;
+        --part-2: #0891b2;
+        --part-3: #059669;
+        --part-4: #ea580c;
+        --solid-accent: #2563eb;
+        --neural-rgb: 37,99,235;
+        --card-glow: rgba(37,99,235,0.16);
+        --select-bg: #ffffff;
+        --select-text: #16203a;
+        --hero-glow-1: rgba(37,99,235,0.12);
+        --hero-glow-2: rgba(8,145,178,0.08);
+    }
+
+    /* Sepia */
+    [data-theme="sepia"] {
+        --bg-body: #efe6d2;
+        --bg-card: #fdf6e3;
+        --bg-card-hover: #fbf2d9;
+        --bg-header: rgba(244,236,216,0.9);
+        --bg-sidebar: rgba(253,246,227,0.72);
+        --bg-input: #f6eed6;
+        --bg-active: rgba(160,90,44,0.14);
+        --bg-hover: rgba(160,90,44,0.06);
+        --text-main: #433422;
+        --topic-color: #433422;
+        --text-muted: #7c6f58;
+        --text-accent: #a05a2c;
+        --text-accent-2: #6b7a3a;
+        --border-color: rgba(160,90,44,0.24);
+        --border-subtle: rgba(67,52,34,0.12);
+        --button-bg: #a05a2c;
+        --button-text: #fdf6e3;
+        --btn-disabled-bg: #ece1c8;
+        --btn-disabled-text: #a08f74;
+        --btn-disabled-border: #d3c4a5;
+        --live-dot: #5a7a3a;
+        --part-1: #a05a2c;
+        --part-2: #6b7a3a;
+        --part-3: #8b7355;
+        --part-4: #b8860b;
+        --solid-accent: #a05a2c;
+        --neural-rgb: 160,90,44;
+        --card-glow: rgba(160,90,44,0.18);
+        --select-bg: #fdf6e3;
+        --select-text: #433422;
+        --hero-glow-1: rgba(160,90,44,0.16);
+        --hero-glow-2: rgba(107,142,35,0.1);
+    }
+
+    /* High Contrast */
+    [data-theme="contrast"] {
+        --bg-body: #000000;
+        --bg-card: #0a0a0a;
+        --bg-card-hover: #141414;
+        --bg-header: rgba(0,0,0,0.9);
+        --bg-sidebar: rgba(0,0,0,0.85);
+        --bg-input: #111111;
+        --bg-active: rgba(255,212,0,0.16);
+        --bg-hover: rgba(255,212,0,0.07);
+        --text-main: #ffffff;
+        --topic-color: #ffffff;
+        --text-muted: #cfcfcf;
+        --text-accent: #ffd400;
+        --text-accent-2: #00e5ff;
+        --border-color: rgba(255,255,255,0.55);
+        --border-subtle: rgba(255,255,255,0.22);
+        --button-bg: #ffd400;
+        --button-text: #000000;
+        --btn-disabled-bg: #141414;
+        --btn-disabled-text: #888888;
+        --btn-disabled-border: #444444;
+        --live-dot: #00ff00;
+        --part-1: #ffd400;
+        --part-2: #00e5ff;
+        --part-3: #00ff00;
+        --part-4: #ff7a00;
+        --solid-accent: #ffd400;
+        --neural-rgb: 255,212,0;
+        --card-glow: rgba(255,212,0,0.2);
+        --select-bg: #111111;
+        --select-text: #ffffff;
+        --hero-glow-1: rgba(255,212,0,0.12);
+        --hero-glow-2: rgba(0,229,255,0.1);
+    }
+
+    /* ============================================================
+       
+
+    /* ============================================================
+       RESET & PAGE
+    ============================================================ */
+    * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    ::selection { background: var(--bg-active); color: var(--text-main); }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+
+    body {
+        font-family: var(--font-main); background: var(--bg-body); color: var(--text-main);
+        line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; overflow-x: hidden;
+        transition: background var(--transition-speed), color var(--transition-speed);
+    }
+    #neural-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    #wash {
+        position: fixed; inset: 0; z-index: 0; pointer-events: none;
+        background:
+            radial-gradient(56vw 46vh at 100% 0%, var(--hero-glow-1), transparent 68%),
+            radial-gradient(46vw 40vh at 0% 4%, var(--hero-glow-2), transparent 66%);
+        transition: background 0.6s ease, opacity 0.4s ease;
+    }
+    body.no-accents #wash { opacity: 0; }
+    #app { position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* ============================================================
+       HEADER  (matches B&B directory)
+    ============================================================ */
+    #main-header {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--header-h);
+        display: flex; align-items: center; gap: 14px; padding: 0 clamp(0.8rem, 2.5vw, 1.4rem);
+        background: var(--bg-header); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%);
+        border-bottom: 1px solid var(--border-subtle);
+        transition: transform 0.35s cubic-bezier(.4,0,.2,1), border-color 0.3s;
+    }
+    #main-header.scrolled { box-shadow: 0 6px 26px rgba(0,0,0,0.18); }
+    #main-header.unpinned { position: absolute; }
+
+    #sidebar-toggle {
+        flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px; background: none;
+        border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 4px; transition: background 0.2s, border-color 0.2s;
+    }
+    #sidebar-toggle:hover { background: var(--bg-hover); }
+    #sidebar-toggle span { display: block; width: 16px; height: 2px; background: var(--text-main); border-radius: 1px; transition: all 0.22s; }
+
+    .brand { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 0; }
+    .brand-mark { flex-shrink: 0; width: 34px; height: 34px; }
+    .brand-mark svg { width: 100%; height: 100%; display: block; }
+    .brand-text { min-width: 0; }
+    .brand-title { font-size: 1.02rem; font-weight: 800; letter-spacing: -0.01em; color: var(--text-main); line-height: 1.12; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-sub { font-size: 0.66rem; color: var(--text-muted); letter-spacing: 0.04em; }
+    .brand-short { display: none; }
+
+    .header-controls { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+
+    .mode-switch { display: inline-flex; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; height: 38px; }
+    .mode-switch button {
+        border: none; background: none; cursor: pointer; font-family: var(--font-main);
+        font-size: 0.78rem; font-weight: 600; color: var(--text-muted); padding: 0 13px; transition: all 0.18s;
+    }
+    .mode-switch button.active { background: var(--button-bg); color: var(--button-text); }
+    .mode-switch button:not(.active):hover { color: var(--text-main); background: var(--bg-hover); }
+
+    .icon-btn, #settings-btn {
+        flex-shrink: 0; height: 38px; min-width: 38px; padding: 0 10px; border-radius: 10px;
+        display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+        background: none; border: 1px solid var(--border-color); cursor: pointer;
+        font-size: 0.9rem; font-weight: 600; color: var(--text-main); font-family: var(--font-main);
+        transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .icon-btn:hover, #settings-btn:hover { background: var(--bg-hover); }
+    .icon-btn:active, #settings-btn:active { transform: scale(0.94); }
+    #settings-btn.open, .icon-btn.on { background: var(--bg-active); border-color: var(--text-accent); color: var(--text-accent); }
+    .icon-btn svg { display: block; }
+    .icon-btn .btn-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.01em; }
+    /* Highlighter active uses the highlight color for a clear signal */
+    #hl-btn.on { background: color-mix(in srgb, var(--flag-color, #f5a524) 22%, transparent); border-color: var(--flag-color, #f5a524); color: var(--flag-color, #f5a524); }
+
+    #theme-select {
+        height: 38px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--border-color); cursor: pointer;
+        background: var(--select-bg); color: var(--select-text); font-family: var(--font-main); font-size: 0.82rem;
+    }
+    #theme-select:hover { border-color: var(--text-accent); }
+    #theme-select option { background: var(--select-bg); color: var(--select-text); }
+
+    /* popovers */
+    #custom-builder, #settings-panel {
+        position: absolute; top: calc(var(--header-h) + 8px); right: clamp(0.8rem, 2.5vw, 1.4rem);
+        background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 15px 17px;
+        z-index: 300; box-shadow: 0 16px 44px rgba(0,0,0,0.4); animation: pop-in 0.2s ease;
+    }
+    @keyframes pop-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    #custom-builder { display: none; flex-direction: column; gap: 4px; min-width: 230px; }
+    #custom-builder.active { display: flex; }
+    .cpg { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--text-muted); font-size: 0.82rem; padding: 5px 0; }
+    .cpg input[type="color"] { border: none; width: 28px; height: 28px; border-radius: 6px; cursor: pointer; padding: 0; background: none; }
+
+    #settings-panel { display: none; min-width: 288px; }
+    #settings-panel.open { display: block; }
+    .settings-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 11px 0; }
+    .settings-row + .settings-row { border-top: 1px solid var(--border-subtle); }
+    .settings-row + .settings-subrow, .settings-subrow + .settings-row { border-top: none; }
+    .settings-row:first-of-type { padding-top: 3px; }
+    .settings-title { font-size: 0.85rem; font-weight: 600; color: var(--text-main); }
+    .settings-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+    .settings-subrow { margin: 3px 0 2px; padding: 10px 12px; background: var(--bg-input); border-radius: 10px; }
+    .settings-subrow .settings-title { font-weight: 600; font-size: 0.8rem; }
+    .mini-select { flex-shrink: 0; height: 30px; padding: 0 8px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--select-bg); color: var(--select-text); font-family: var(--font-main); font-size: 0.76rem; cursor: pointer; max-width: 148px; }
+    .mini-select option { background: var(--select-bg); color: var(--select-text); }
+    .toggle-switch { flex-shrink: 0; width: 46px; height: 26px; border-radius: 100px; position: relative; border: 1px solid var(--border-color); background: var(--bg-input); cursor: pointer; padding: 0; transition: background 0.22s, border-color 0.22s; }
+    .toggle-switch.on { background: var(--button-bg); border-color: var(--button-bg); }
+    .toggle-knob { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.35); transition: transform 0.24s cubic-bezier(.4,0,.2,1); }
+    .toggle-switch.on .toggle-knob { transform: translateX(20px); }
+
+    .settings-action { align-items: center; }
+    .btn-pair { flex-shrink: 0; display: inline-flex; gap: 6px; }
+    .pair-btn {
+        font-family: var(--font-main); font-size: 0.76rem; font-weight: 700; cursor: pointer;
+        padding: 7px 15px; border-radius: 8px;
+        background: var(--bg-card); color: var(--text-accent); border: 1px solid var(--border-color);
+        transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+    .pair-btn:hover { background: var(--text-accent); color: var(--button-text); border-color: var(--text-accent); }
+    .pair-btn.danger { color: #f87171; border-color: rgba(248,113,113,0.5); }
+    .pair-btn.danger:hover, .pair-btn.danger.confirm { background: #f87171; color: #fff; border-color: #f87171; }
+    .mode-switch-mobile { height: 34px; }
+    .mode-switch-mobile button { font-size: 0.76rem; padding: 0 14px; }
+    /* Mobile-only settings rows hidden on desktop */
+    .mobile-only-row { display: none; }
+
+    /* ============================================================
+       LAYOUT + SIDEBAR (question navigator)
+    ============================================================ */
+    #body-layout { display: flex; flex: 1; margin-top: var(--header-height); transition: margin-top 0.35s cubic-bezier(.4,0,.2,1); }
+    #sidebar {
+        width: var(--sidebar-width); flex-shrink: 0; position: sticky; top: var(--header-height); align-self: flex-start;
+        height: calc(100vh - var(--header-height)); overflow-y: auto; padding: 1.2rem 0 2.5rem;
+        background: var(--bg-sidebar); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        border-right: 1px solid var(--border-subtle);
+        transition: width 0.32s cubic-bezier(.4,0,.2,1), opacity 0.25s, padding 0.32s;
+    }
+    #sidebar.collapsed { width: 0; opacity: 0; padding: 0; overflow: hidden; border-right: none; }
+
+    /* Drag handle to resize the sidebar */
+    #sidebar-resizer {
+        flex-shrink: 0; width: 7px; margin-left: -7px; z-index: 120;
+        position: sticky; top: var(--header-height); align-self: flex-start;
+        height: calc(100vh - var(--header-height)); cursor: col-resize;
+        background: transparent; transition: background 0.2s;
+        display: flex; align-items: center; justify-content: center;
+    }
+    #sidebar-resizer::before {
+        content: ""; width: 2px; height: 34px; border-radius: 2px;
+        background: var(--border-color); opacity: 0; transition: opacity 0.2s, background 0.2s;
+    }
+    #sidebar-resizer:hover::before, body.resizing #sidebar-resizer::before { opacity: 1; background: var(--text-accent); }
+    #sidebar-resizer:hover { background: var(--bg-hover); }
+    /* Hide the handle whenever the navigator is collapsed */
+    #sidebar.collapsed ~ #sidebar-resizer { display: none; }
+    /* While dragging, suppress the width transition for 1:1 tracking */
+    body.resizing #sidebar { transition: none; }
+    body.resizing { cursor: col-resize; user-select: none; -webkit-user-select: none; }
+
+    .nav-summary { padding: 0 1.15rem 1rem; margin-bottom: 0.4rem; border-bottom: 1px solid var(--border-subtle); }
+    .nav-summary-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.7rem; }
+    .progress-track { height: 8px; border-radius: 100px; background: var(--bg-input); overflow: hidden; border: 1px solid var(--border-subtle); }
+    .progress-fill { height: 100%; width: 0%; border-radius: 100px; background: linear-gradient(90deg, var(--text-accent), var(--text-accent-2)); transition: width 0.35s ease; }
+    .nav-stats { display: flex; justify-content: space-between; margin-top: 0.6rem; font-size: 0.74rem; color: var(--text-muted); }
+    .nav-stats b { color: var(--text-main); font-variant-numeric: tabular-nums; }
+    .nav-flag-count { color: var(--flag-color, #f5a524); }
+
+    .nav-section { padding: 0.5rem 1.15rem 0.2rem; }
+    .nav-section-label {
+        display: flex; align-items: center; gap: 8px; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--text-accent); margin: 0.9rem 0 0.7rem; line-height: 1.4;
+    }
+    .nav-section-label .sec-num { flex-shrink: 0; width: 18px; height: 18px; border-radius: 5px; background: var(--bg-active); display: inline-flex; align-items: center; justify-content: center; font-size: 0.62rem; }
+    .nav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); gap: 6px; }
+
+    .nav-cell {
+        position: relative; aspect-ratio: 1; border-radius: 9px; cursor: pointer;
+        border: 1.5px solid var(--border-color); background: var(--bg-input);
+        color: var(--text-muted); font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600;
+        display: flex; align-items: center; justify-content: center; transition: all 0.16s;
+    }
+    .nav-cell:hover { transform: translateY(-1px); border-color: var(--text-accent); color: var(--text-main); }
+    .nav-cell.answered { background: var(--bg-active); border-color: var(--text-accent); color: var(--text-accent); }
+    .nav-cell.current { box-shadow: 0 0 0 2px var(--text-accent); border-color: var(--text-accent); }
+    .nav-cell.correct { background: var(--correct-bg, rgba(52,211,153,0.22)); border-color: var(--correct, #34d399); color: var(--correct, #34d399); }
+    .nav-cell.incorrect { background: var(--incorrect-bg, rgba(248,113,113,0.2)); border-color: var(--incorrect, #f87171); color: var(--incorrect, #f87171); }
+    .nav-cell .flag-dot { position: absolute; top: -4px; right: -4px; width: 12px; height: 12px; border-radius: 50%; background: var(--flag-color, #f5a524); border: 2px solid var(--bg-sidebar); display: none; }
+    .nav-cell.flagged .flag-dot { display: block; }
+
+    .nav-legend { padding: 1rem 1.15rem 0; margin-top: 0.6rem; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 7px; }
+    .legend-item { display: flex; align-items: center; gap: 9px; font-size: 0.72rem; color: var(--text-muted); }
+    .legend-swatch { width: 16px; height: 16px; border-radius: 5px; border: 1.5px solid var(--border-color); flex-shrink: 0; position: relative; }
+    .legend-swatch.answered { background: var(--bg-active); border-color: var(--text-accent); }
+    .legend-swatch.flagged::after { content: ""; position: absolute; top: -3px; right: -3px; width: 9px; height: 9px; border-radius: 50%; background: var(--flag-color, #f5a524); border: 1.5px solid var(--bg-sidebar); }
+    .legend-swatch.correct { background: var(--correct-bg, rgba(52,211,153,0.22)); border-color: var(--correct, #34d399); }
+    .legend-swatch.incorrect { background: var(--incorrect-bg, rgba(248,113,113,0.2)); border-color: var(--incorrect, #f87171); }
+
+    /* ============================================================
+       MAIN + QUIZ
+    ============================================================ */
+    #main-content { flex: 1; min-width: 0; padding: clamp(1.6rem, 3vw, 2.6rem) clamp(1rem, 4vw, 3rem) 5rem; max-width: 860px; margin: 0 auto; width: 100%; }
+
+    .quiz-hero { margin-bottom: 2rem; }
+    .quiz-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.7rem; }
+    .quiz-title { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; background: linear-gradient(120deg, var(--text-accent), var(--text-accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; width: fit-content; }
+    body.no-accents .quiz-title { background: none; -webkit-text-fill-color: var(--solid-accent); color: var(--solid-accent); }
+    .quiz-meta { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--border-subtle); }
+    .qm { display: flex; flex-direction: column; gap: 2px; }
+    .qm .n { font-size: 1.2rem; font-weight: 700; color: var(--text-main); font-variant-numeric: tabular-nums; }
+    .qm .l { font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .mode-hint { margin-top: 1.1rem; padding: 0.7rem 1rem; border-radius: 10px; background: var(--bg-active); border: 1px solid var(--border-color); font-size: 0.82rem; color: var(--text-main); display: flex; align-items: center; gap: 9px; }
+    .mode-hint .mh-ic { font-size: 1rem; }
+
+    /* section divider between question groups */
+    .section-divider { display: flex; align-items: center; gap: 14px; margin: 2.4rem 0 1.4rem; }
+    .section-divider:first-of-type { margin-top: 0.5rem; }
+    .section-divider .sd-chip { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-accent); padding: 4px 10px; border-radius: 8px; background: var(--bg-active); white-space: nowrap; }
+    .section-divider .sd-name { font-size: 1.02rem; font-weight: 700; color: var(--text-main); }
+    .section-divider .sd-rule { flex: 1; height: 1px; background: var(--border-subtle); }
+
+    /* question card */
+    .question-card { position: relative; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.4rem 1.5rem; margin-bottom: 1.3rem; scroll-margin-top: calc(var(--header-height) + 16px); transition: border-color 0.2s, box-shadow 0.2s; }
+    .question-card.flagged { border-color: var(--flag-color, #f5a524); box-shadow: 0 0 0 1px var(--flag-color, #f5a524); }
+    .q-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 0.5rem; }
+    .q-index { flex-shrink: 0; font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: var(--text-accent); background: var(--bg-active); border-radius: 8px; padding: 3px 9px; }
+    .q-spacer { flex: 1; }
+    .flag-btn { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; padding: 5px 11px; border-radius: 100px; background: none; border: 1px solid var(--border-color); color: var(--text-muted); font-family: var(--font-main); font-size: 0.74rem; font-weight: 600; transition: all 0.18s; }
+    .flag-btn:hover { color: var(--flag-color, #f5a524); border-color: var(--flag-color, #f5a524); }
+    .question-card.flagged .flag-btn { background: var(--flag-color, #f5a524); color: #1a1205; border-color: var(--flag-color, #f5a524); }
+
+    .lo-box { display: none; margin-bottom: 1rem; padding: 0.7rem 0.9rem; border-radius: 10px; background: var(--bg-input); border-left: 3px solid var(--text-accent); font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    body.show-lo .lo-box { display: block; }
+    .lo-box .lo-tag { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); display: block; margin-bottom: 3px; }
+
+    .question-text { font-size: 1.02rem; line-height: 1.6; color: var(--text-main); margin-bottom: 1.1rem; }
+
+    .options-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+    .option-label { display: flex; align-items: flex-start; gap: 12px; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 11px; cursor: pointer; transition: background 0.16s, border-color 0.16s; background: var(--bg-input); }
+    .option-label:hover { border-color: var(--text-accent); background: var(--bg-hover); }
+    .option-label input { display: none; }
+    .opt-key { flex-shrink: 0; width: 24px; height: 24px; border-radius: 7px; border: 1.5px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); transition: all 0.16s; }
+    .option-label:hover .opt-key { border-color: var(--text-accent); color: var(--text-accent); }
+    .option-label.selected { border-color: var(--text-accent); background: var(--bg-active); }
+    .option-label.selected .opt-key { background: var(--text-accent); border-color: var(--text-accent); color: var(--button-text); }
+    .opt-text { flex: 1; font-size: 0.94rem; line-height: 1.45; padding-top: 1px; }
+    .option-label.locked { cursor: default; pointer-events: none; }
+    .option-label.answer-correct { border-color: var(--correct, #34d399); background: var(--correct-bg, rgba(52,211,153,0.14)); }
+    .option-label.answer-correct .opt-key { background: var(--correct, #34d399); border-color: var(--correct, #34d399); color: #05130d; }
+    .option-label.answer-wrong { border-color: var(--incorrect, #f87171); background: var(--incorrect-bg, rgba(248,113,113,0.12)); }
+    .option-label.answer-wrong .opt-key { background: var(--incorrect, #f87171); border-color: var(--incorrect, #f87171); color: #150404; }
+    .opt-mark { margin-left: auto; font-weight: 700; font-size: 0.9rem; align-self: center; }
+    .option-label.answer-correct .opt-mark { color: var(--correct, #34d399); }
+    .option-label.answer-wrong .opt-mark { color: var(--incorrect, #f87171); }
+
+    /* submit + feedback */
+    .q-submit { margin-top: 1.1rem; display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; border-radius: 10px; cursor: pointer; font-family: var(--font-main); font-size: 0.86rem; font-weight: 700; background: var(--button-bg); color: var(--button-text); border: 1px solid var(--button-bg); transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s; }
+    .q-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px var(--card-glow); }
+    .q-submit.hidden { display: none; }
+
+    .feedback { display: none; margin-top: 1.2rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); animation: fb-in 0.3s ease; }
+    @keyframes fb-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .feedback.show { display: block; }
+    .feedback-header { display: flex; align-items: center; gap: 9px; padding: 0.8rem 1.1rem; font-weight: 700; font-size: 0.92rem; }
+    .feedback.correct .feedback-header { background: var(--correct-bg, rgba(52,211,153,0.16)); color: var(--correct, #34d399); }
+    .feedback.incorrect .feedback-header { background: var(--incorrect-bg, rgba(248,113,113,0.14)); color: var(--incorrect, #f87171); }
+    .feedback-body { padding: 1rem 1.1rem; }
+    .feedback-body .fb-line { font-size: 0.9rem; margin-bottom: 0.7rem; color: var(--text-main); }
+    .feedback-body .fb-line:last-child { margin-bottom: 0; }
+    .rationale, .source { font-size: 0.88rem; line-height: 1.6; color: var(--text-main); padding: 0.8rem 0.95rem; border-radius: 9px; background: var(--bg-input); margin-top: 0.7rem; }
+    .rationale strong, .source strong { color: var(--text-accent); }
+    .source { color: var(--text-muted); font-size: 0.82rem; }
+
+    /* finish bar + results */
+    .quiz-end { margin-top: 2.4rem; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .quiz-end.hidden { display: none; }
+    .btn-finish { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 11px; cursor: pointer; font-family: var(--font-main); font-size: 0.95rem; font-weight: 700; background: var(--button-bg); color: var(--button-text); border: none; transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s; }
+    .btn-finish:hover { transform: translateY(-1px); box-shadow: 0 8px 22px var(--card-glow); }
+    .btn-finish:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* Tutor live score tracker (top of page) */
+    #tutor-tracker { display: none; margin-bottom: 1.6rem; scroll-margin-top: calc(var(--header-height) + 16px); }
+    #tutor-tracker.show { display: block; animation: fb-in 0.3s ease; }
+    .tt-card { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.9rem 1.2rem; border: 1px solid var(--border-color); border-radius: var(--radius); background: linear-gradient(120deg, color-mix(in srgb, var(--text-accent) 10%, transparent), transparent); }
+    .tt-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-accent); }
+    .tt-main { font-size: 1.05rem; font-weight: 800; color: var(--text-main); font-variant-numeric: tabular-nums; }
+    .tt-main .tt-pct { color: var(--text-accent); }
+    .tt-tallies { display: flex; gap: 14px; flex-wrap: wrap; margin-left: auto; font-size: 0.82rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .tt-tallies .tt-correct { color: var(--correct, #34d399); }
+    .tt-tallies .tt-incorrect { color: var(--incorrect, #f87171); }
+    .tt-tallies .tt-remaining { color: var(--text-muted); }
+    .tt-track { flex-basis: 100%; height: 7px; border-radius: 100px; background: var(--bg-input); overflow: hidden; border: 1px solid var(--border-subtle); }
+    .tt-fill { height: 100%; width: 0%; border-radius: 100px; background: linear-gradient(90deg, var(--text-accent), var(--text-accent-2)); transition: width 0.35s ease; }
+
+    #results-card { display: none; margin-bottom: 2rem; border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; background: var(--bg-card); scroll-margin-top: calc(var(--header-height) + 16px); }
+    #results-card.show { display: block; animation: fb-in 0.4s ease; }
+    .results-top { padding: 1.6rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; background: linear-gradient(120deg, color-mix(in srgb, var(--text-accent) 12%, transparent), transparent); }
+    .score-ring { --pct: 0; flex-shrink: 0; width: 104px; height: 104px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--text-accent) calc(var(--pct) * 1%), var(--bg-input) 0); }
+    .score-ring-inner { width: 82px; height: 82px; border-radius: 50%; background: var(--bg-card); display: grid; place-items: center; text-align: center; }
+    .score-ring .sr-pct { font-size: 1.5rem; font-weight: 800; color: var(--text-main); line-height: 1; }
+    .score-ring .sr-lbl { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
+    .results-headline { flex: 1; min-width: 200px; }
+    .results-headline h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .results-headline p { font-size: 0.9rem; color: var(--text-muted); }
+    .results-tally { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .results-tally .tally { font-size: 0.86rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .results-tally .correct-tally { color: var(--correct, #34d399); }
+    .results-tally .incorrect-tally { color: var(--incorrect, #f87171); }
+    .results-saved { font-size: 0.8rem; color: var(--text-muted); }
+    .results-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 1.1rem 1.5rem; border-top: 1px solid var(--border-subtle); }
+    .results-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 10px; cursor: pointer; font-family: var(--font-main); font-size: 0.82rem; font-weight: 600; background: var(--bg-input); color: var(--text-main); border: 1px solid var(--border-color); text-decoration: none; transition: all 0.18s; }
+    .results-btn:hover { border-color: var(--text-accent); color: var(--text-accent); }
+    .results-btn.primary { background: var(--button-bg); color: var(--button-text); border-color: var(--button-bg); }
+    .results-btn.danger-outline { color: #f87171; border-color: rgba(248,113,113,0.5); }
+    .results-btn.danger-outline:hover { background: #f87171; color: #fff; border-color: #f87171; }
+    .section-scores { padding: 0 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .sec-score-row { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; }
+    .sec-score-name { flex: 1; color: var(--text-main); }
+    .sec-score-bar { flex: 1.4; height: 7px; border-radius: 100px; background: var(--bg-input); overflow: hidden; }
+    .sec-score-bar span { display: block; height: 100%; background: var(--text-accent); border-radius: 100px; }
+    .sec-score-val { font-variant-numeric: tabular-nums; color: var(--text-muted); min-width: 48px; text-align: right; }
+
+    /* Retry results — how the previously-missed questions went on the retry pass */
+    .retry-results { margin: 0 1.5rem 1.4rem; padding: 1rem 1.1rem; border: 1px solid var(--border-color); border-radius: 12px; background: var(--bg-active); }
+    .retry-results-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 0.75rem; }
+    .rr-title { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-accent); }
+    .rr-score { font-size: 0.9rem; color: var(--text-main); }
+    .rr-score b { font-variant-numeric: tabular-nums; }
+    .retry-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .retry-chip { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; padding: 4px 9px; border-radius: 7px; border: 1px solid var(--border-color); background: var(--bg-input); color: var(--text-muted); cursor: pointer; transition: transform 0.15s, border-color 0.15s; }
+    .retry-chip:hover { transform: translateY(-1px); }
+    .retry-chip.ok { color: var(--correct, #34d399); border-color: var(--correct, #34d399); background: var(--correct-bg, rgba(52,211,153,0.14)); }
+    .retry-chip.no { color: var(--incorrect, #f87171); border-color: var(--incorrect, #f87171); background: var(--incorrect-bg, rgba(248,113,113,0.12)); }
+
+    /* Help button (hero) + controls guide modal */
+    .help-btn {
+        display: inline-flex; align-items: center; gap: 8px; margin-top: 1.1rem;
+        padding: 8px 15px; border-radius: 10px; cursor: pointer;
+        background: var(--bg-active); color: var(--text-accent);
+        border: 1px solid var(--border-color); font-family: var(--font-main);
+        font-size: 0.82rem; font-weight: 600;
+        transition: background 0.18s, border-color 0.18s, transform 0.15s;
+    }
+    .help-btn:hover { background: var(--bg-hover); border-color: var(--text-accent); transform: translateY(-1px); }
+    .help-btn svg { display: block; }
+
+    #help-overlay {
+        display: none; position: fixed; inset: 0; z-index: 500;
+        background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+        padding: clamp(1rem, 4vh, 3rem) 1rem; overflow-y: auto;
+    }
+    #help-overlay.open { display: flex; align-items: flex-start; justify-content: center; animation: fb-in 0.2s ease; }
+    .help-card {
+        width: 100%; max-width: 620px; margin: auto; background: var(--bg-card);
+        border: 1px solid var(--border-color); border-radius: var(--radius);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.5); overflow: hidden;
+    }
+    .help-head {
+        display: flex; align-items: center; gap: 12px; padding: 1.05rem 1.3rem;
+        border-bottom: 1px solid var(--border-subtle);
+        background: linear-gradient(120deg, color-mix(in srgb, var(--text-accent) 12%, transparent), transparent);
+    }
+    .help-head svg { color: var(--text-accent); flex-shrink: 0; }
+    .help-head h2 { font-size: 1.12rem; font-weight: 800; flex: 1; }
+    .help-close {
+        flex-shrink: 0; width: 34px; height: 34px; border-radius: 9px; cursor: pointer;
+        background: none; border: 1px solid var(--border-color); color: var(--text-main);
+        font-size: 1rem; line-height: 1; display: inline-flex; align-items: center; justify-content: center;
+        transition: background 0.18s, border-color 0.18s, color 0.18s;
+    }
+    .help-close:hover { background: var(--bg-hover); border-color: var(--text-accent); color: var(--text-accent); }
+    .help-body { padding: 1.2rem 1.3rem 1.4rem; }
+    .help-section + .help-section { margin-top: 1.3rem; padding-top: 1.2rem; border-top: 1px solid var(--border-subtle); }
+    .help-section h3 {
+        font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+        color: var(--text-accent); margin-bottom: 0.8rem;
+    }
+    .key-row { display: flex; align-items: flex-start; gap: 14px; padding: 6px 0; font-size: 0.9rem; }
+    .key-row + .key-row { border-top: 1px solid var(--border-subtle); }
+    .key-keys { flex-shrink: 0; display: inline-flex; gap: 5px; flex-wrap: wrap; align-items: center; min-width: 120px; }
+    .key-desc { color: var(--text-main); padding-top: 3px; }
+    .help-body kbd {
+        font-family: var(--font-mono); font-size: 0.76rem; font-weight: 700;
+        min-width: 24px; text-align: center; padding: 3px 7px; border-radius: 6px;
+        background: var(--bg-input); color: var(--text-main);
+        border: 1px solid var(--border-color); border-bottom-width: 2px;
+        display: inline-block; line-height: 1.2;
+    }
+    .help-body .key-sep { color: var(--text-muted); font-size: 0.8rem; }
+    .help-tip { font-size: 0.9rem; line-height: 1.6; color: var(--text-main); }
+    .help-tip b { color: var(--text-accent); }
+    .help-tip + .help-tip { margin-top: 0.6rem; }
+
+    .quiz-return { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 2.5rem; }
+    .btn-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.88rem; color: var(--text-accent); border: 1px solid var(--border-color); background: none; font-family: var(--font-main); cursor: pointer; transition: all 0.2s; }
+    .btn-link:hover { background: var(--bg-active); border-color: var(--text-accent); }
+
+    #site-footer { position: relative; z-index: 1; text-align: center; padding: 2rem 1rem 2.6rem; border-top: 1px solid var(--border-subtle); font-size: 0.76rem; color: var(--text-muted); }
+    #site-footer a { color: var(--text-accent); text-decoration: none; }
+
+    /* Highlighter tool */
+    /* Sidebar tools (reset) */
+    .nav-tools { padding: 1rem 1.15rem 0; margin-top: 0.6rem; border-top: 1px solid var(--border-subtle); }
+    .nav-tool-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0.6rem 0.8rem; border-radius: 10px; cursor: pointer; font-family: var(--font-main); font-size: 0.8rem; font-weight: 600; background: var(--bg-input); border: 1px solid var(--border-subtle); color: var(--text-muted); transition: all 0.18s; }
+    .nav-tool-btn svg { flex-shrink: 0; }
+    .nav-tool-btn.danger:hover { color: #fff; background: #f87171; border-color: #f87171; }
+    .nav-tool-btn.confirm { color: #fff; background: #f87171; border-color: #f87171; }
+    body.hl-mode .question-text, body.hl-mode .opt-text { cursor: text; }
+    body.hl-mode .question-card { --hl-hint: 1; }
+    mark.hl { background: var(--flag-color, #f5a524); color: #1a1205; border-radius: 3px; padding: 0 1px; cursor: pointer; }
+    [data-theme="light"] mark.hl, [data-theme="sepia"] mark.hl { color: #1a1205; }
+
+    /* Strikethrough / eliminated option */
+    .option-label.eliminated { opacity: 0.5; }
+    .option-label.eliminated .opt-text { text-decoration: line-through; text-decoration-thickness: 2px; }
+    .option-label.eliminated .opt-key { opacity: 0.6; }
+
+    .retry-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 1.4rem; padding: 0.85rem 1.1rem; border-radius: 12px; background: var(--bg-active); border: 1px solid var(--border-color); font-size: 0.88rem; color: var(--text-main); }
+
+    /* color-accents off: neutralize the multi-color bits already handled by theme --solid-accent */
+    body.no-accents .quiz-title { -webkit-text-fill-color: var(--solid-accent); }
+
+    @media (max-width: 820px) {
+        :root { --sidebar-width: 280px; }
+        #sidebar { position: fixed; top: var(--header-height); left: 0; z-index: 190; box-shadow: 8px 0 34px rgba(0,0,0,0.4); }
+        #sidebar.collapsed { width: 0; opacity: 0; padding: 0; }
+        #sidebar-resizer { display: none; }   /* sidebar is an overlay on mobile — no resizing */
+        #main-content { padding: 1.4rem 1.1rem 5rem; }
+        /* Keep mode toggle in the header; move only the theme picker into settings */
+        .header-controls .header-theme { display: none; }
+        .mobile-only-row { display: flex; }
+        #settings-panel { min-width: 258px; max-width: calc(100vw - 1.6rem); }
+        .mode-switch button { padding: 0 11px; }
+    }
+    @media (max-width: 560px) {
+        .brand-full { display: none; } .brand-short { display: inline; } .brand-sub { display: none; }
+        .brand-title { font-size: 1.05rem; overflow: visible; }
+        .icon-btn .btn-label { display: none; }   /* LO button shows icon only */
+        .header-controls { gap: 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } html { scroll-behavior: auto; } }
+    </style>
+</head>
+
+<body>
+
+<canvas id="neural-bg" aria-hidden="true"></canvas>
+<div id="wash" aria-hidden="true"></div>
+
+<div id="app">
+
+<!-- ============ HEADER ============ -->
+<header id="main-header">
+    <button id="sidebar-toggle" title="Toggle question navigator" aria-label="Toggle question navigator">
+        <span></span><span></span><span></span>
+    </button>
+
+    <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+                <defs><linearGradient id="bm" x1="0" y1="0" x2="32" y2="32"><stop offset="0" stop-color="var(--text-accent)"/><stop offset="1" stop-color="var(--text-accent-2)"/></linearGradient></defs>
+                <path d="M16 4c-3 0-5.5 2-6 4.7C7.5 9 5.5 11 5.5 13.5c0 1.2.4 2.3 1.2 3.1-.5.8-.8 1.7-.8 2.7 0 2.7 2.2 4.9 4.9 4.9.3 1.6 1.7 2.8 3.4 2.8 1 0 1.8-.4 2.4-1V6.6C16.5 5 16.3 4 16 4z" fill="url(#bm)" opacity="0.92"/>
+                <path d="M16 4c3 0 5.5 2 6 4.7 2.5.3 4.5 2.3 4.5 4.8 0 1.2-.4 2.3-1.2 3.1.5.8.8 1.7.8 2.7 0 2.7-2.2 4.9-4.9 4.9-.3 1.6-1.7 2.8-3.4 2.8-1 0-1.8-.4-2.4-1V6.6C15.5 5 15.7 4 16 4z" fill="url(#bm)"/>
+                <circle cx="11" cy="13" r="1.1" fill="var(--bg-card)"/><circle cx="21" cy="13" r="1.1" fill="var(--bg-card)"/><circle cx="13" cy="19" r="1.1" fill="var(--bg-card)"/><circle cx="19" cy="19" r="1.1" fill="var(--bg-card)"/>
+            </svg>
+        </div>
+        <div class="brand-text">
+            <div class="brand-title"><span class="brand-full">Brain &amp; Behavior</span><span class="brand-short">B&amp;B</span></div>
+            <div class="brand-sub">Week 51 · B&amp;B Wk 1 · Part 2 Practice Quiz</div>
+        </div>
+    </div>
+
+    <div class="header-controls">
+        <div class="mode-switch" role="group" aria-label="Quiz mode">
+            <button id="mode-tutor" class="active" onclick="setMode('tutor')" title="Tutor mode: instant feedback per question">Tutor</button>
+            <button id="mode-exam" onclick="setMode('exam')" title="Exam mode: grade at the end">Exam</button>
+        </div>
+        <button id="grade-btn" class="icon-btn" onclick="toggleGradeTrack()" title="Live score tracker (tutor mode)" aria-label="Toggle live score tracker" aria-pressed="false">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V10"/><path d="M10 19V5"/><path d="M16 19v-7"/><path d="M3 21h18"/></svg>
+            <span class="btn-label">Grade</span>
+        </button>
+        <button id="lo-btn" class="icon-btn" onclick="toggleLOs()" title="Show / hide learning objectives" aria-label="Show or hide learning objectives">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
+            <span class="btn-label">LOs</span>
+        </button>
+        <button id="hl-btn" class="icon-btn" onclick="toggleHighlighter()" title="Highlighter (H)" aria-label="Toggle highlighter">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 4.5l4 4-8.5 8.5-4 1 1-4z"/><path d="M12.5 7.5l4 4"/><path d="M4 20.5h6" stroke-width="2.4"/></svg>
+        </button>
+        <select id="theme-select" class="header-theme" title="Choose color theme">
+            <option value="slate">Slate Blue</option>
+            <option value="light">Modern Light</option>
+            <option value="sepia">Sepia</option>
+            <option value="charcoal">Charcoal</option>
+            <option value="forest">Forest</option>
+            <option value="plum">Plum</option>
+            <option value="navy">Navy</option>
+            <option value="midnight">Midnight</option>
+            <option value="contrast">High Contrast</option>
+            <option value="custom">⚙️ Custom…</option>
+        </select>
+        <button id="settings-btn" class="icon-btn" onclick="toggleSettings()" title="Settings" aria-label="Settings">⚙️</button>
+    </div>
+
+    <div id="custom-builder">
+        <div class="cpg"><label>Background</label><input type="color" id="color-bg" value="#1e293b" oninput="updateCustomTheme()"></div>
+        <div class="cpg"><label>Cards</label><input type="color" id="color-card" value="#334155" oninput="updateCustomTheme()"></div>
+        <div class="cpg"><label>Text</label><input type="color" id="color-text" value="#f1f5f9" oninput="updateCustomTheme()"></div>
+        <div class="cpg"><label>Accent</label><input type="color" id="color-accent" value="#38bdf8" oninput="updateCustomTheme()"></div>
+    </div>
+
+    <div id="settings-panel">
+        <!-- Theme moves in here on small screens (header keeps it on desktop) -->
+        <div class="settings-row mobile-only-row">
+            <div class="settings-text"><div class="settings-title">Theme</div><div class="settings-sub">Color palette</div></div>
+            <select id="theme-select-m" class="mini-select" title="Choose color theme">
+                <option value="slate">Slate Blue</option>
+                <option value="light">Modern Light</option>
+                <option value="sepia">Sepia</option>
+                <option value="charcoal">Charcoal</option>
+                <option value="forest">Forest</option>
+                <option value="plum">Plum</option>
+                <option value="navy">Navy</option>
+                <option value="midnight">Midnight</option>
+                <option value="contrast">High Contrast</option>
+                <option value="custom">⚙️ Custom…</option>
+            </select>
+        </div>
+        <div class="settings-row">
+            <div class="settings-text"><div class="settings-title">Animated background</div><div class="settings-sub">Subtle motion behind the page</div></div>
+            <button id="bg-toggle" class="toggle-switch on" role="switch" aria-checked="true" onclick="toggleBackground()"><span class="toggle-knob"></span></button>
+        </div>
+        <div class="settings-row settings-subrow" id="bg-style-row">
+            <div class="settings-text"><div class="settings-title">Background style</div><div class="settings-sub">Choose the animation</div></div>
+            <select id="bg-style-select" class="mini-select" onchange="setBgStyle(this.value)">
+                <option value="neural">Neural network</option>
+                <option value="starfield">Starfield</option>
+                <option value="bubbles">Floating orbs</option>
+                <option value="grid">Pulsing grid</option>
+                <option value="waves">Waves</option>
+            </select>
+        </div>
+        <div class="settings-row">
+            <div class="settings-text"><div class="settings-title">Color accents</div><div class="settings-sub">Corner glow &amp; colored highlights</div></div>
+            <button id="accent-toggle" class="toggle-switch on" role="switch" aria-checked="true" onclick="toggleAccents()"><span class="toggle-knob"></span></button>
+        </div>
+        <div class="settings-row">
+            <div class="settings-text"><div class="settings-title">Pinned header</div><div class="settings-sub">Keep the header fixed while scrolling</div></div>
+            <button id="pin-toggle" class="toggle-switch on" role="switch" aria-checked="true" onclick="toggleHeader()"><span class="toggle-knob"></span></button>
+        </div>
+    </div>
+</header>
+
+<div id="body-layout">
+
+    <!-- ============ SIDEBAR : question navigator ============ -->
+    <nav id="sidebar" aria-label="Question navigator">
+        <div class="nav-summary">
+            <div class="nav-summary-title">Progress</div>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+            <div class="nav-stats">
+                <span><b id="answered-count">0</b> / <span id="total-count">0</span> answered</span>
+                <span class="nav-flag-count">⚑ <b id="flag-count">0</b></span>
+            </div>
+        </div>
+        <div id="nav-sections"></div>
+        <div class="nav-legend" id="nav-legend">
+            <div class="legend-item"><span class="legend-swatch"></span> Unanswered</div>
+            <div class="legend-item"><span class="legend-swatch answered"></span> Answered</div>
+            <div class="legend-item"><span class="legend-swatch flagged"></span> Flagged</div>
+            <div class="legend-item legend-graded" style="display:none"><span class="legend-swatch correct"></span> Correct</div>
+            <div class="legend-item legend-graded" style="display:none"><span class="legend-swatch incorrect"></span> Incorrect</div>
+        </div>
+        <div class="nav-tools">
+            <button id="reset-quiz-btn" class="nav-tool-btn danger" onclick="resetQuiz()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+                Reset quiz
+            </button>
+        </div>
+    </nav>
+
+    <!-- Drag handle: resize the question navigator (double-click to reset) -->
+    <div id="sidebar-resizer" role="separator" aria-orientation="vertical" aria-label="Resize navigator" title="Drag to resize · double-click to reset"></div>
+
+    <!-- ============ MAIN ============ -->
+    <main id="main-content">
+        <div class="quiz-hero">
+            <div class="quiz-eyebrow">Brain &amp; Behavior · Week 51 · B&amp;B Week 1</div>
+            <h1 class="quiz-title">Part 2 — Practice Quiz</h1>
+            <button id="help-btn" class="help-btn" onclick="openHelp()" aria-haspopup="dialog" title="How to use this quiz + keyboard shortcuts">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+                Keyboard &amp; controls
+            </button>
+            <div class="quiz-meta">
+                <div class="qm"><span class="n" id="meta-q">0</span><span class="l">Questions</span></div>
+                <div class="qm"><span class="n" id="meta-sec">0</span><span class="l">Sections</span></div>
+                <div class="qm"><span class="n" id="meta-mode">Tutor</span><span class="l">Mode</span></div>
+            </div>
+            <div class="mode-hint" id="mode-hint"><span class="mh-ic">💡</span><span id="mode-hint-text">New function: the sidebar is now resizeable by dragging the divider. Double click the divider to reset it.</span></div>
+        </div>
+
+        <div id="tutor-tracker" aria-live="polite"></div>
+        <div id="results-card"></div>
+        <div id="quiz-root"></div>
+
+        <div class="quiz-end hidden" id="quiz-end">
+            <button class="btn-finish" id="finish-btn" onclick="finishQuiz()">Submit &amp; grade quiz</button>
+            <button class="results-btn danger-outline" onclick="resetQuiz()">Reset quiz</button>
+        </div>
+
+        <div class="quiz-return">
+            <a href="https://ibecerramcg.github.io/BnB-Practice-Quizzes/" class="btn-link">← Return to B&amp;B Directory</a>
+            <button class="btn-link" id="view-score-btn" onclick="jumpToTracker()" style="display:none">↑ View score</button>
+            <button class="btn-link" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>
+        </div>
+    </main>
+</div>
+
+<footer id="site-footer">Created by Ian Becerra · <a href="mailto:ibecerra@augusta.edu">ibecerra@augusta.edu</a> · Medical College of Georgia, Class of 2029</footer>
+</div>
+
+<!-- ============ CONTROLS / KEYBOARD GUIDE MODAL ============ -->
+<div id="help-overlay" role="dialog" aria-modal="true" aria-labelledby="help-title" onclick="if(event.target===this)closeHelp()">
+    <div class="help-card">
+        <div class="help-head">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            <h2 id="help-title">How to use this quiz</h2>
+            <button class="help-close" onclick="closeHelp()" aria-label="Close guide">✕</button>
+        </div>
+        <div class="help-body">
+            <div class="help-section">
+                <h3>Keyboard shortcuts</h3>
+                <div class="key-row"><span class="key-keys"><kbd>A</kbd><span class="key-sep">–</span><kbd>E</kbd></span><span class="key-desc">Select an answer choice</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>Enter</kbd></span><span class="key-desc">Submit the current question (Tutor mode)</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>F</kbd></span><span class="key-desc">Flag / unflag the current question</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>J</kbd><span class="key-sep">or</span><kbd>↓</kbd></span><span class="key-desc">Go to the next question</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>K</kbd><span class="key-sep">or</span><kbd>↑</kbd></span><span class="key-desc">Go to the previous question</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>H</kbd></span><span class="key-desc">Turn the highlighter on or off</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>Esc</kbd></span><span class="key-desc">Close this guide, menus, and pop-ups</span></div>
+            </div>
+            <div class="help-section">
+                <h3>Question navigator (sidebar)</h3>
+                <p class="help-tip">Open or close the navigator with the <b>☰ button</b> at the top-left of the header.</p>
+                <p class="help-tip">Every <b>question number is clickable</b> — select one to jump straight to that question. They're grouped by section, with a <b>progress bar</b>, answered count, and flag count at the top.</p>
+                <p class="help-tip">Each number is <b>color-coded</b> by status — answered, flagged, and (once graded) correct or incorrect — with a matching <b>legend</b> at the bottom of the navigator.</p>
+                <p class="help-tip">The <b>Reset quiz</b> button at the bottom of the navigator clears your answers, flags, eliminations, and highlights so you can start fresh.</p>
+            </div>
+            <div class="help-section">
+                <h3>Highlighter</h3>
+                <p class="help-tip">Turn the highlighter on with the <b>marker button</b> in the header (or press <kbd>H</kbd>). While it's on, <b>select any text</b> in a question stem to highlight it.</p>
+                <p class="help-tip"><b>Click a highlight</b> to remove it.</p>
+            </div>
+            <div class="help-section">
+                <h3>Strike through / eliminate answers</h3>
+                <p class="help-tip"><b>Right-click</b> an answer choice (on a computer) or <b>press and hold</b> it (on a touch screen) to cross it out as eliminated. Repeat to bring it back.</p>
+            </div>
+            <div class="help-section">
+                <h3>Modes &amp; tools</h3>
+                <p class="help-tip"><b>Tutor</b> grades each question the moment you submit it and shows the explanation. <b>Exam</b> hides feedback until you press <b>Submit &amp; grade quiz</b> at the end.</p>
+                <p class="help-tip">Turn on <b>Grade</b> (Tutor only) for a live running score, and use <b>LOs</b> to reveal learning objectives. (See the <b>Question navigator</b> section above for jumping between questions and resetting.)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* ============================================================
+   QUIZ DATA  (extracted from the original Week-46 quiz file)
+============================================================ */
+const QUIZ_ID = 'w51p2';   // must match the B&B directory card data-quiz
+const quizData = [{"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO1: Name and describe the main sulci and gyri of the cerebral cortex.", "question": "A neurosurgeon mapping the cerebral cortex during a procedure identifies the prominent central sulcus. She knows that stimulating the gyrus immediately anterior to this sulcus will elicit a motor response, while the gyrus immediately posterior processes somatosensory information. Which of the following cerebral lobes are directly separated by this specific anatomical landmark?", "options": {"A": "Frontal and parietal lobes", "B": "Frontal and temporal lobes", "C": "Parietal and occipital lobes", "D": "Temporal and occipital lobes", "E": "Temporal and parietal lobes"}, "correctAnswer": "A", "rationale": "The central sulcus is a major lobe-delineating sulcus of the brain. It serves as the anatomical border separating the frontal lobe (anteriorly) and the parietal lobe (posteriorly).", "source": "'LO1: Main Sulci (superior & lateral views)... The central sulcus borders which lobes?' [Image confirms separation of Frontal and Parietal lobes] (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 9)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO1: Name and describe the main sulci and gyri of the cerebral cortex.", "question": "A patient suffers a massive stroke affecting the cerebral cortex that lies inferior to the lateral sulcus (Sylvian fissure). This fissure serves as the primary anatomical border separating the affected lobe from which of the following structures?", "options": {"A": "The frontal and parietal lobes", "B": "The occipital lobe", "C": "The paracentral lobule", "D": "The parieto-occipital sulcus", "E": "The precentral gyrus"}, "correctAnswer": "A", "rationale": "The lateral sulcus (Sylvian fissure) is a deep fissure on the lateral surface of the brain that separates the temporal lobe (below) from the frontal and parietal lobes (above).", "source": "'The lateral sulcus separates the temporal and frontal & parietal lobes.' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 39)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO2: Describe important primary cortical areas related to motor and sensory functions including the primary: motor, somatosensory, visual, and auditory cortices.", "question": "A patient sustains a highly localized ischemic stroke affecting the most posterior pole of the occipital lobe. Visual field testing reveals a small, focal deficit. Despite the small physical size of the lesion, the visual deficit corresponds to a highly specialized region of the retina. The disproportionately large representation of this retinal area in the primary visual cortex is due to which of the following physiological principles?", "options": {"A": "The area has the highest density of sensory neurons", "B": "The fovea utilizes exclusively rod photoreceptors", "C": "The optic radiations decussate twice before arriving", "D": "The visual cortex entirely lacks association areas", "E": "The visual field processing is strictly ipsilateral"}, "correctAnswer": "A", "rationale": "Primary sensory cortices map the body proportionally to the density of sensory neurons, not physical size. In the primary visual cortex, a disproportionately large area is dedicated to representing the fovea because it contains the highest density of sensory neurons in the retina.", "source": "'Proportional- large part of primary visual cortex represents the fovea (highest density of sensory neurons)' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 23)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO2: Describe important primary cortical areas related to motor and sensory functions including the primary: motor, somatosensory, visual, and auditory cortices.", "question": "A patient participates in an auditory mapping study. Researchers play isolated, specific high- and low-frequency tones into the patient's right ear and measure the corresponding cortical activation on functional MRI. The activation maps specifically to the left transverse temporal gyri in a highly organized spatial pattern. This organization of the primary auditory cortex is based on which of the following mapping principles?", "options": {"A": "Retinotopy", "B": "Somatotopy", "C": "Tonotopy", "D": "Topographic decussation", "E": "Vestibular synchronization"}, "correctAnswer": "C", "rationale": "The primary auditory cortex, located in the transverse temporal gyri, processes auditory information in a topographically organized manner based on frequency bands. This specific organization is called tonotopy.", "source": "'LO2: Primary Auditory Cortex... Processed information is: Contralateral ear (cochlea)... Topographic- Tonotopy (frequency bands)' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 24)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO3: Distinguish the roles of primary cortex and association cortex, and the clinical significance of this distinction.", "question": "A neurosurgeon is resecting a large cerebral glioma. To maximize the patient's postoperative functional recovery, the surgeon meticulously plans the approach to sacrifice portions of the association cortex while strictly avoiding the primary motor cortex. Which of the following principles best explains the clinical justification for this surgical strategy?", "options": {"A": "Association areas are more likely to rewire after damage", "B": "Association areas do not process sensory information", "C": "Primary cortices possess higher neuroglial density", "D": "Primary motor cortex controls ipsilateral musculature", "E": "Primary motor cortex lacks interhemispheric commissures"}, "correctAnswer": "A", "rationale": "When damage to the cortex is inevitable during neurosurgery, it is crucial to spare the primary sensory and motor cortices. This is because the brain's association areas demonstrate greater neuroplasticity and are more likely to rewire and compensate after damage compared to the primary cortices.", "source": "'LO3: Primary vs Association Cortices- Clinical significance. When damage to part of cortex is inevitable, focus on sparing primary sensory or motor cortex, as association areas are more likely to rewire after damage' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 26)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO3: Distinguish the roles of primary cortex and association cortex, and the clinical significance of this distinction.", "question": "A physiologist is recording electrical activity from the primary somatosensory cortex in the postcentral gyrus. He finds that stimulating neighboring touch receptors on the patient's index finger sequentially activates adjacent, neighboring neurons in the cortex. This specific functional characteristic of primary sensory and motor cortices is defined as being:", "options": {"A": "Contralateral", "B": "Evolutionarily expanded", "C": "Hemispherically dominant", "D": "Proportional", "E": "Topographically organized"}, "correctAnswer": "E", "rationale": "A defining role and characteristic of primary sensory and motor cortices is their topographic organization. This means that neighboring sensory neurons on the body surface activate neighboring neurons in the primary sensory cortex.", "source": "'Information processed by primary sensory/motor cortices is:... Topographically organized from/to the surface of the body: neighboring sensory neurons activate neighboring neurons in primary sensory cortex' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 20)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO4: Define the homunculus and describe the topographic map of the precentral and postcentral gyri relative to the body.", "question": "A medical student examining the cortical motor homunculus notices that the area dedicated to controlling the muscles of the tongue is massively larger than the area dedicated to the entire back. This disproportionate size on the homunculus map is a direct reflection of which of the following variables?", "options": {"A": "The complexity of the local association cortex", "B": "The overall length of the muscle fibers", "C": "The physical surface area of the body part", "D": "The relative number of sensory/motor neurons", "E": "The total blood flow to the tissue"}, "correctAnswer": "D", "rationale": "The homunculus represents body parts proportionally to the number of sensory or motor neurons supplying that area, not the actual physical size of the body part. Therefore, highly innervated areas like the tongue, face, and hands have massive cortical representations.", "source": "'Processed information is:... Proportional to the number of sensory/motor neurons in a represented body area: the tongue has a larger representation than the entire back' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 21)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO4: Define the homunculus and describe the topographic map of the precentral and postcentral gyri relative to the body.", "question": "A 55-year-old man experiences an ischemic stroke that exclusively affects the superior and medial portions of his primary motor and somatosensory cortices (the tissue located within the longitudinal fissure). Based on the somatotopic arrangement of the cortical homunculus, which of the following body regions is most likely to exhibit functional deficits?", "options": {"A": "Face", "B": "Fingers", "C": "Hand", "D": "Leg", "E": "Lips"}, "correctAnswer": "D", "rationale": "The primary motor and somatosensory cortices are topographically organized. The somatotopic arrangement maps the body regions in a specific order: LAF (Leg, Arm, Face) moving from the medial aspect to the lateral aspect of the cortex. Therefore, a lesion restricted to the medial portion of the cortex (within the longitudinal fissure) will primarily affect the leg.", "source": "'Topographically organized from/to the surface of the body: somatotopic arrangement- LAF (leg, arm, face)' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 21)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO5: Describe cortical areas related to language, namely Broca’s and Wernicke’s areas, their function, and corresponding impairments (aphasias).", "question": "A patient presents to the clinic with severe difficulty producing speech. He understands the physician's questions perfectly and follows commands but struggles immensely to force out spoken or written words. The physician suspects an expressive aphasia. An ischemic lesion is most likely located in which of the following specific anatomical regions of the frontal lobe?", "options": {"A": "Pars triangularis and pars opercularis", "B": "Postcentral gyrus", "C": "Precentral gyrus", "D": "Subcallosal gyrus", "E": "Transverse temporal gyri"}, "correctAnswer": "A", "rationale": "Expressive (Broca's) aphasia is characterized by difficulty producing verbal or written speech with preserved comprehension. Broca's area, responsible for this function, is anatomically defined as the pars triangularis and pars opercularis of the inferior frontal gyrus.", "source": "'Broca’s area= Pars Triangularis and Pars Opercularis... Broca’s area- involved in the production of speech sounds' and 'Expressive aphasia (Broca’s aphasia): Difficulty producing speech (verbal or written)' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slides 27 & 28)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO5: Describe cortical areas related to language, namely Broca’s and Wernicke’s areas, their function, and corresponding impairments (aphasias).", "question": "A 55-year-old woman is evaluated for a language deficit. She speaks fluently and appears to understand the physician's questions perfectly. However, when the physician asks her to exactly repeat the phrase \"no ifs, ands, or buts,\" she is completely unable to do so. The physician diagnoses a conductive aphasia. This specific impairment is most directly caused by a lesion in which of the following structures?", "options": {"A": "Arcuate fasciculus", "B": "Central sulcus", "C": "Corpus callosum", "D": "Primary auditory cortex", "E": "Wernicke's area"}, "correctAnswer": "A", "rationale": "Conductive aphasia occurs when a patient can understand and produce speech but has profound difficulty repeating words and phrases. This is caused by damage to the arcuate fasciculus, the white matter tract connecting Wernicke's area (comprehension) to Broca's area (production).", "source": "'Conductive aphasia (arcuate fasciculus): Can understand and produce speech but has difficulty in repeating words and phrases' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 28)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO6: List the impairments associated with lesions to the dominant and non-dominant parietal lobe.", "question": "A 68-year-old right-handed man presents with a constellation of specific cognitive deficits following a stroke. He exhibits profound acalculia, agraphia, and finger anomia (e.g., misnaming his index finger as a pinky finger). He is also completely unable to differentiate his right side from his left. These findings constitute Gerstmann syndrome. The underlying lesion is most likely located in which of the following cortical areas?", "options": {"A": "Dominant frontal lobe", "B": "Dominant parietal lobe", "C": "Non-dominant frontal lobe", "D": "Non-dominant parietal lobe", "E": "Non-dominant temporal lobe"}, "correctAnswer": "B", "rationale": "Gerstmann syndrome is characterized by acalculia, agraphia, finger anomia, and right-left disorientation. It is caused by a lesion in the dominant (usually left) parietal cortex.", "source": "'LO6: Lesions of Parietal Cortex in the Dominant (language supporting) hemisphere... Ex. Gerstmann syndrome- Characterized by acalculia (difficulty with mathematical tasks), agraphia (difficulty writing), finger anomia... and difficulty in differentiating right from left' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 30)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO6: List the impairments associated with lesions to the dominant and non-dominant parietal lobe.", "question": "A right-handed patient is asked to draw the face of a clock during a neurological exam. He correctly draws the circle but clusters all the numbers 1 through 12 onto the right half of the clock face, leaving the left half entirely blank. He also arrives at the clinic with only the right side of his face shaved. This specific form of constructional apraxia and spatial hemineglect is highly characteristic of a lesion in which of the following regions?", "options": {"A": "Left frontal lobe", "B": "Left parietal lobe", "C": "Right frontal lobe", "D": "Right parietal lobe", "E": "Right temporal lobe"}, "correctAnswer": "D", "rationale": "Spatial hemineglect (failing to acknowledge the left visual field or left side of the body) and constructional apraxia (failing the clock-drawing test) are hallmark signs of a lesion in the non-dominant parietal lobe. In a right-handed patient, the non-dominant hemisphere is almost always the right cerebral hemisphere, thus implicating the right parietal lobe.", "source": "'LO6: Lesions of Non-Dominant Parietal Cortex... Hemiagnosia/Spatial hemineglect- does not acknowledge or attend to anything in the left visual field... Constructional apraxia... they fail the Clock-drawing test' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 31)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO7: Identify the primary functions of the temporal lobe.", "question": "A 40-year-old musician undergoes a right (non-dominant) temporal lobectomy for medically refractory epilepsy. Following the surgery, her language and verbal memory are perfectly preserved. However, her family notices she has developed a profound inability to recognize melodies she has known her entire life. This specific deficit highlights which of the following specialized functions of the non-dominant temporal lobe?", "options": {"A": "Expressive speech production", "B": "Non-verbal facial/musical recognition", "C": "Somatosensory integration", "D": "Spatial hemineglect", "E": "Verbal memory processing"}, "correctAnswer": "B", "rationale": "The temporal lobe exhibits functional asymmetry. The dominant temporal lobe handles verbal memory, whereas the non-dominant temporal lobe specializes in non-verbal facial and musical recognition.", "source": "'LO7: Main Functions of the Temporal Lobe... Functional asymmetry: dominant- verbal memory; non-dominant- non-verbal facial/musical recognition' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 33)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO7: Identify the primary functions of the temporal lobe.", "question": "A researcher is conducting functional MRI studies on healthy volunteers exposed to various sensory stimuli. When the volunteers are exposed to strong odors, distinct activation is noted in a specific primary cortical region. This primary olfactory cortex is located within which of the following major divisions of the cerebrum?", "options": {"A": "Frontal lobe", "B": "Occipital lobe", "C": "Parietal lobe", "D": "Temporal lobe", "E": "Thalamus"}, "correctAnswer": "D", "rationale": "The temporal lobe houses the primary sensory cortices for both hearing and smell.", "source": "'LO7: Main Functions of the Temporal Lobe. Sensory (hearing and smell): primary auditory and olfactory cortices' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 33)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO8: List the blood supply to specific functional areas of the cortex", "question": "A 50-year-old man suffers a cardiac arrest resulting in massive global cerebral hypoperfusion. Emergency responders restore his heartbeat after 4 minutes. Despite maximal medical therapy, the patient sustains severe, permanent neurological deficits. According to standard physiological thresholds for cortical blood supply, how many seconds of absent blood flow generally leads to irreversible brain damage?", "options": {"A": "10 seconds", "B": "20 seconds", "C": "60 seconds", "D": "120 seconds", "E": "180 seconds"}, "correctAnswer": "E", "rationale": "The brain is highly metabolically active. A loss of blood flow for 10 seconds causes loss of consciousness, 20 seconds causes loss of electrical activity, and 180 seconds (3 minutes) leads to irreversible brain damage.", "source": "'The brain is highly metabolically active and requires constant blood perfusion... 180 seconds=irreversible brain damage' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 35)"}, {"section": "Cerebrum: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO8: List the blood supply to specific functional areas of the cortex", "question": "A patient presents with expressive aphasia, indicating an acute ischemic lesion affecting Broca's area on the lateral surface of the frontal lobe. Based on the standard cortical vascular territories, this specific functional area receives its blood supply predominantly from branches of which of the following arteries?", "options": {"A": "Anterior cerebral artery (ACA)", "B": "Basilar artery", "C": "Middle cerebral artery (MCA)", "D": "Posterior cerebral artery (PCA)", "E": "Vertebral artery"}, "correctAnswer": "C", "rationale": "Broca's area sits on the lateral surface of the frontal lobe. The entire lateral convexity of the cerebral cortex is supplied by the Middle Cerebral Artery (MCA).", "source": "'Blood flow obstruction in 3) [Broca's area] will be in a branch of the Medial Cerebral artery (MCA). Broca’s area is on the lateral surface of the frontal lobe with blood supply provided by the MCA.' (Cerebrum: Neuroanatomy, Function, & Blood Supply PDF, slide 39. Note: \"Medial\" is a typo in the slide text for Middle, but MCA is correct)."}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO1: Describe the external features of the midbrain, pons, and medulla (e.g., cerebral peduncles, superior/inferior colliculi, basis pontis, pyramids, olives) and correlate each with its primary function.", "question": "A medical student is identifying external features of the brainstem on a gross anatomical specimen. On the anterior (ventral) surface of the medulla, she identifies two prominent longitudinal ridges flanking the anterior median fissure. These structures, the pyramids, primarily contain which of the following neural tracts?", "options": {"A": "Corticobulbar tracts", "B": "Corticospinal tracts", "C": "Medial lemniscus", "D": "Spinocerebellar tracts", "E": "Spinothalamic tracts"}, "correctAnswer": "B", "rationale": "The pyramids are large bulges on the ventral surface of the medulla. They primarily contain the descending corticospinal tracts (CST) before they decussate.", "source": "'Medulla (anterior) Pyramid (↓ ipsilateral CST)' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, slide 79)"}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO1: Describe the external features of the midbrain, pons, and medulla (e.g., cerebral peduncles, superior/inferior colliculi, basis pontis, pyramids, olives) and correlate each with its primary function.", "question": "An anatomist examines the anterior surface of the midbrain. He identifies two massive columns of white matter emerging from the cerebral hemispheres and plunging downward into the pons. These structures, known as the cerebral peduncles, primarily carry which of the following descending pathways?", "options": {"A": "Corticospinal and corticobulbar tracts", "B": "Medial longitudinal fasciculus", "C": "Posterior column-medial lemniscus", "D": "Spinothalamic tracts", "E": "Vestibulospinal tracts"}, "correctAnswer": "A", "rationale": "The cerebral peduncles (specifically the crus cerebri portion) are located on the ventral surface of the midbrain and carry massive descending motor pathways from the cortex, primarily the corticospinal and corticobulbar tracts.", "source": "'Midbrain Cerebral Peduncles (ipsilateral CST/CBT) CST – Corticospinal Tract (voluntary motor to body) CBT – Corticobulbar Tract (voluntary motor to head)' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, slide 39)"}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO2: Recognize the key anatomical landmarks that distinguish rostral midbrain, caudal midbrain, rostral pons, caudal pons, rostral medulla, and caudal medulla in axial sections.", "question": "A neuroradiologist is examining an axial MRI slice of the brainstem. She identifies a prominent, paired, rounded structure in the tegmentum known as the red nucleus. The presence of this specific nucleus definitively confirms that the axial section was taken at the level of which of the following brainstem landmarks?", "options": {"A": "Facial colliculus", "B": "Inferior colliculus", "C": "Pyramidal decussation", "D": "Superior colliculus", "E": "Vestibular nuclei"}, "correctAnswer": "D", "rationale": "The red nucleus is a defining hallmark of the rostral midbrain. Identifying the red nucleus in an axial section confirms the level of the superior colliculi, whereas sections at the inferior colliculi lack a red nucleus.", "source": "'If you see the Red Nucleus, you are at the level* of the superior colliculi.' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, slide 114)"}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO2: Recognize the key anatomical landmarks that distinguish rostral midbrain, caudal midbrain, rostral pons, caudal pons, rostral medulla, and caudal medulla in axial sections.", "question": "A pathology resident is sectioning a brainstem and examines a cross-section of the medulla. He notes that the central canal of the spinal cord has widened out dorsally and now communicates directly with the fourth ventricle. Based on this specific anatomical relationship, this section represents which of the following specific regions?", "options": {"A": "Caudal medulla", "B": "Caudal pons", "C": "Mid medulla", "D": "Rostral medulla", "E": "Rostral pons"}, "correctAnswer": "D", "rationale": "The medulla is anatomically divided into 'open' and 'closed' portions based on the presence of the central canal vs the 4th ventricle. The rostral (superior) medulla is 'open' because the central canal has opened up to communicate directly with the 4th ventricle.", "source": "'Terminology – (‘Open’ vs ‘Closed’ Medulla)... Rostral (superior) medulla is ‘open’ medulla because the central canal communicates directly w/ 4th ventricle' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, slide 82)"}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO3: Identify the cranial nerve nuclei contributing to each cranial nerve and use this knowledge to predict the deficits resulting from brainstem lesions at specific levels.", "question": "A 65-year-old man presents with a massively dilated right pupil that does not constrict to light, and his right eye is fixed in a \"down and out\" position. An unruptured aneurysm is found to be severely compressing a cranial nerve in the midbrain. Based on the spatial arrangement of fibers within this nerve, severe compression of which of the following nerves accounts for both the somatic and parasympathetic deficits?", "options": {"A": "Abducens nerve (CN VI)", "B": "Facial nerve (CN VII)", "C": "Oculomotor nerve (CN III)", "D": "Trochlear nerve (CN IV)", "E": "Vagus nerve (CN X)"}, "correctAnswer": "C", "rationale": "The Oculomotor nerve (CN III) carries parasympathetic fibers on the outside and somatic motor fibers on the inside. If the nerve is compressed severely (\"squished a lot\"), both functions are lost, resulting in a dilated pupil (loss of parasympathetic constriction) and a \"down and out\" eye (loss of somatic motor muscles except superior oblique and lateral rectus).", "source": "'If CN III gets squished, patient has observable symptoms... if CN III is squished a lot, both somatic motor and parasympathetic functions are affected (pupils dilate and eye looks ‘down and out’).' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, slide 105)"}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO3: Identify the cranial nerve nuclei contributing to each cranial nerve and use this knowledge to predict the deficits resulting from brainstem lesions at specific levels.", "question": "A patient presents with difficulty articulating words. On physical examination, the physician asks the patient to protrude his tongue. The tongue significantly deviates to the right side. This clinical finding indicates a lesion involving the hypoglossal nerve (CN XII) or its nucleus. Where is the normal anatomical location of this specific cranial nerve nucleus?", "options": {"A": "Caudal pons, floor of 4th ventricle", "B": "Midbrain, caudal to oculomotor nucleus", "C": "Rostral medulla, paramedian, floor of 4th ventricle", "D": "Rostral midbrain, ventral to periaqueductal gray", "E": "Spans pons-medulla-upper cervical cord"}, "correctAnswer": "C", "rationale": "The Hypoglossal nucleus (CN XII) is located in the rostral medulla, sitting paramedian to the floor of the 4th ventricle. It innervates the intrinsic and extrinsic muscles of the tongue.", "source": "'Table: Abbreviated Table of Cranial Nerves, Nuclei, and Functions... Hypoglossal N. | Motor | Hypoglossal nucleus | Rostral medulla, paramedian, floor of 4th ventricle | Movement of tongue' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, page 17 of Word doc/Slide table counterpart)"}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO4: Discuss the internal organization of the brainstem including relative locations/positions of clinically relevant ascending and descending tracts, connections to the cerebellum, and cranial nerves and their nuclei.", "question": "During embryological development of the neural tube, the sulcus limitans divides the sensory and motor halves. Because of this developmental pattern, cranial nerve nuclei with strictly motor functions (such as the oculomotor and hypoglossal nuclei) are generally located in which of the following relative positions within the adult brainstem?", "options": {"A": "Closer to the lateral surface", "B": "Closer to the midline", "C": "Exclusively in the tectum", "D": "Lateral to the sulcus limitans", "E": "Scattered randomly in the reticular formation"}, "correctAnswer": "B", "rationale": "The sulcus limitans separates sensory and motor development. In the brainstem, motor nuclei stay closer to the midline, while sensory nuclei are pushed further laterally.", "source": "'(Relative) Locations – CN Nuclei and Tracts. Motor near Midline – Cranial Nerve nuclei with motor functions are located closer to the midline (e.g., Oculomotor nucleus... Hypoglossal nucleus).' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, slide 101)"}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO4: Discuss the internal organization of the brainstem including relative locations/positions of clinically relevant ascending and descending tracts, connections to the cerebellum, and cranial nerves and their nuclei.", "question": "A neurologist is tracing the ascending sensory pathways that carry proprioception and vibration from the body to the brain. She notes that the posterior columns in the spinal cord and a distinct tract in the brainstem combine to form a single continuous pathway. What is the name of this specific white matter tract as it ascends through the brainstem tegmentum?", "options": {"A": "Corticospinal tract", "B": "Medial lemniscus", "C": "Medial longitudinal fasciculus", "D": "Spinothalamic tract", "E": "Superior cerebellar peduncle"}, "correctAnswer": "B", "rationale": "The Posterior Column-Medial Lemniscus (PCML) pathway combines the posterior columns in the spinal cord and the medial lemniscus in the brainstem to carry proprioception information.", "source": "'PCML = Posterior Column + Medial Lemniscus. These are two different white matter tracts... Posterior columns in the spinal cord. Medial lemniscus in the brainstem' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, slide 119)"}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO5: Describe the blood supply to each level of the brainstem and predict the neurological deficits resulting from occlusion of clinically relevant arteries and/or their branches.", "question": "A 70-year-old man suffers an ischemic stroke resulting from the occlusion of the paramedian branches of the basilar artery. Based on the vascular territories of the brainstem, this occlusion will most likely cause a lesion localized to the medial pons. Which of the following sets of structures is most likely to be directly affected by this specific vascular insult?", "options": {"A": "Corticospinal tract, medial lemniscus, and CN VI", "B": "Inferior cerebellar peduncle, vestibular nuclei, and CN VIII", "C": "Nucleus ambiguus, spinothalamic tract, and CN X", "D": "Red nucleus, oculomotor nerve, and corticobulbar tract", "E": "Superior colliculus, periaqueductal gray, and CN IV"}, "correctAnswer": "A", "rationale": "The basilar artery gives off paramedian branches that supply the medial structures of the pons. A lesion in the medial pons typically affects the Corticospinal Tract (CST), the medial lemniscus, and Cranial Nerve VI (Abducens).", "source": "'Typical Stroke/Lesion Locations • medial pons – affecting CST, medial lemniscus, CN VI' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, slide 77)"}, {"section": "Brainstem: Neuroanatomy, Function, & Blood Supply", "fullLO": "LO5: Describe the blood supply to each level of the brainstem and predict the neurological deficits resulting from occlusion of clinically relevant arteries and/or their branches.", "question": "A 62-year-old woman presents with severe vertigo, ataxia, and a loss of pain and temperature sensation. MRI reveals an infarction due to the occlusion of the posterior inferior cerebellar artery (PICA) or vertebral artery, which typically results in a lateral medulla lesion. Which of the following descending tracts is most likely to be directly affected by this specific lesion?", "options": {"A": "Corticobulbar tract", "B": "Corticospinal tract", "C": "Descending hypothalamic tract", "D": "Medial longitudinal fasciculus", "E": "Posterior column-medial lemniscus"}, "correctAnswer": "C", "rationale": "Occlusion of the circumferential branches (such as PICA) or the vertebral artery causes lesions in the lateral medulla. The structures affected in a lateral medulla lesion include the descending hypothalamic tracts, spinothalamic tracts, spinal trigeminal tracts, nucleus ambiguus, vestibular nuclei, and inferior cerebellar peduncle. The corticospinal tract and medial lemniscus are located medially and are therefore spared in a lateral lesion.", "source": "'Typical Stroke/Lesion Locations... Lateral Medulla – affecting the nucleus ambiguus, vestibular nuclei, inferior cerebellar peduncle, and spinothalamic, spinal trigeminal, and descending hypothalamic tracts' (Brainstem: Neuroanatomy, Function, & Blood Supply PDF, slide 89)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO1: Describe the basic principles underlying computed tomography (CT), magnetic resonance imaging (MRI), and cerebrovascular angiography.", "question": "A 50-year-old man is brought to the emergency department after a high-speed motor vehicle collision. A computed tomography (CT) scan of his head is rapidly obtained. The basic physical principle allowing this imaging modality to generate diagnostic images relies on the differential tissue penetration of which of the following?", "options": {"A": "High-frequency sound waves", "B": "Ionizing radiation (X-rays)", "C": "Positron emissions", "D": "Radiofrequency pulses in a magnetic field", "E": "Subatomic protons"}, "correctAnswer": "B", "rationale": "Computed Tomography (CT) functions by utilizing ionizing radiation (X-rays). The ability of the X-rays to penetrate tissue is directly related to the density of that tissue, allowing a computer to generate a 3D image.", "source": "'Computed Tomography (also called CT or CAT scan) • Fancy X-ray machine hooked up to a computer... X-rays are ionizing radiation → penetrate tissue. penetrating ability of X-rays is related to tissue density' (Fundamentals of Neuroradiology PDF, slide 11)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO1: Describe the basic principles underlying computed tomography (CT), magnetic resonance imaging (MRI), and cerebrovascular angiography.", "question": "A patient undergoes a magnetic resonance imaging (MRI) scan of the brain to evaluate for a suspected brain tumor. The technician explains the basic principles of the machine to the patient. MRI generates images by exploiting the magnetic properties of which of the following specific atomic components within the body's tissues?", "options": {"A": "Calcium ions", "B": "Carbon isotopes", "C": "Hydrogen nucleus", "D": "Iron molecules in hemoglobin", "E": "Oxygen molecules"}, "correctAnswer": "C", "rationale": "Magnetic Resonance Imaging (MRI) works by applying a radiofrequency (RF) pulse in a strong magnetic field to exploit the magnetic properties of the hydrogen nucleus (protons) abundant in the body's water and fat.", "source": "'magnetic resonance imaging (MRI)... Exploits magnetic properties of the hydrogen nucleus' (Fundamentals of Neuroradiology PDF, slide 17)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO2: Describe the characteristics/appearance of different neuroanatomical structures when visualized using CT (‘bone’ and ‘brain’ windows), MRI (T1- and T2-weighted scans, FLAIR, Diffusion-Weighted Imaging/DWI), and angiography (CTA, MRA, DSA).", "question": "A radiologist is reviewing a brain MRI and notes that the cerebrospinal fluid (CSF) in the lateral ventricles appears distinctly bright (white signal), while the white matter appears darker than the gray matter. Which of the following specific MRI sequences is being utilized?", "options": {"A": "Computed Tomography (CT)", "B": "Diffusion-Weighted Imaging (DWI)", "C": "Fluid Attenuated Inversion Recovery (FLAIR)", "D": "T1-weighted (T1w)", "E": "T2-weighted (T2w)"}, "correctAnswer": "E", "rationale": "In a T2-weighted MRI, water and CSF have a high (bright/white) signal. A helpful mnemonic is \"WW2 = Water White T2\". Additionally, white matter is darker than gray matter on a T2.", "source": "'T2w MRI -> WW2 = Water White T2. water/CSF -> white... white matter -> darker' (Fundamentals of Neuroradiology PDF, slide 10)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO2: Describe the characteristics/appearance of different neuroanatomical structures when visualized using CT (‘bone’ and ‘brain’ windows), MRI (T1- and T2-weighted scans, FLAIR, Diffusion-Weighted Imaging/DWI), and angiography (CTA, MRA, DSA).", "question": "A 60-year-old man presents with sudden right-sided weakness. To urgently evaluate for the acute phase of ischemia (cytotoxic edema), the neurologist orders an MRI sequence designed to detect the Brownian motion of water molecules within the tissue. In this sequence, restricted water movement will appear as a high (bright) signal. Which of the following imaging modalities is requested?", "options": {"A": "CT Angiography (CTA)", "B": "Diffusion weighted imaging (DWI)", "C": "Digital Subtraction Angiography (DSA)", "D": "T1-weighted with contrast", "E": "T2-weighted"}, "correctAnswer": "B", "rationale": "Diffusion Weighted Imaging (DWI) detects the Brownian motion of water. During an acute stroke (ischemia), cells swell (cytotoxic edema), which restricts the normal movement of water. This restricted water movement creates a bright (high) signal on DWI, making it highly sensitive for acute stroke.", "source": "'DWI (Diffusion weighted imaging) • Detects the Brownian motion of water molecules within tissue • High water movement = ↓ signal; Restricted water movement = ↑ signal • Helpful to evaluate acute phase of ischemia (cytotoxic edema = excess intracellular water accumulation = restricted water movement = ↑ signal)' (Fundamentals of Neuroradiology PDF, slide 20)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO3: Interpret CT and MRI images of the brain, identifying major neuroanatomical structures and recognizing imaging findings associated with common pathologies (e.g., hemorrhage, infarct, mass effect).", "question": "A patient with an intracranial mass undergoes a T1-weighted MRI with intravenous gadolinium contrast. The resulting images demonstrate a bright, complete \"ring enhancement\" around the lesion. Under normal physiological conditions, which of the following structures strictly prevents this contrast material from passing into the brain tissue?", "options": {"A": "Arachnoid granulations", "B": "Blood-brain barrier (BBB)", "C": "Choroid plexus", "D": "Dura mater", "E": "Ependymal lining"}, "correctAnswer": "B", "rationale": "Gadolinium contrast cannot normally cross into the brain parenchyma due to the intact Blood-Brain Barrier (BBB). Pathologies like tumors and infections alter the permeability of the BBB, causing the contrast to leak out and produce abnormal contrast enhancement (such as a ring enhancement).", "source": "'Normally, blood-brain barrier (BBB) prevents contrast material from passing into the brain, spinal cord, and proximal nerves. • Pathology that alters BBB permeability can cause abnormal contrast enhancement.' (Fundamentals of Neuroradiology PDF, slide 21)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO3: Interpret CT and MRI images of the brain, identifying major neuroanatomical structures and recognizing imaging findings associated with common pathologies (e.g., hemorrhage, infarct, mass effect).", "question": "An interventional neuroradiologist is performing a diagnostic procedure to closely examine the cerebral vasculature for a suspected aneurysm. She injects a contrast agent through a catheter placed directly into the right internal carotid artery. The imaging system then automatically subtracts a baseline image to remove all background bone and tissue, leaving only the signal in the artery with the catheter and its downstream vessels. Which of the following specific imaging techniques is being utilized?", "options": {"A": "Computed Tomography Angiography (CTA)", "B": "Diffusion-Weighted Imaging (DWI)", "C": "Digital Subtraction Angiography (DSA)", "D": "Magnetic Resonance Angiography (MRA)", "E": "Non-contrast CT"}, "correctAnswer": "C", "rationale": "Digital Subtraction Angiography (DSA) works by taking a 'before' image, injecting contrast through a catheter, taking an 'after' image, and subtracting the two. This removes the background. Unlike CTA and MRA which show all cerebral vessels, DSA only shows the specific artery the catheter is in and its downstream vessels.", "source": "'Digital Subtraction Angiography (DSA)... Subtract first (noncontrast) image from second (contrasted) image = removes background... Unlike CTA and MRA, where most or all vasculature has signal, in DSA signal is only in artery with catheter (and downstream arteries and veins)' (Fundamentals of Neuroradiology PDF, slide 26)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO4: Compare and contrast the radiological appearance of intracranial hemorrhages (epidural, subdural, subarachnoid, intraparenchymal, intraventricular).", "question": "A 22-year-old woman is struck in the head by a falling branch. She arrives at the ER conscious but soon becomes comatose. A head CT reveals a distinct \"lens-shaped\" (biconvex) hyperdense collection of blood. The blood does not cross the cranial suture lines. This specific type of hemorrhage typically results from injury to which of the following structures?", "options": {"A": "Bridging veins", "B": "Middle cerebral artery", "C": "Middle meningeal artery", "D": "Superior sagittal sinus", "E": "Vertebral artery"}, "correctAnswer": "C", "rationale": "An epidural hematoma occurs between the skull and dura, creating a lentiform/biconvex mass that is bounded by cranial sutures. It is classically arterial in origin, usually caused by trauma to the middle meningeal artery.", "source": "'Epidural Hemorrhage... Source: Arterial middle meningeal a. ... Shape: Lentiform bi-convex' (Fundamentals of Neuroradiology PDF, slide 28)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO4: Compare and contrast the radiological appearance of intracranial hemorrhages (epidural, subdural, subarachnoid, intraparenchymal, intraventricular).", "question": "An 80-year-old man with a history of recurrent falls presents with progressive cognitive decline and mild right-sided weakness. A head CT scan demonstrates a crescent-shaped hyperdense mass. This specific pattern of hemorrhage occurs when blood collects in the potential space between which of the following anatomical layers?", "options": {"A": "Between the arachnoid mater and the pia mater", "B": "Between the dura mater and the arachnoid mater", "C": "Between the skull and the periosteal layer of the dura", "D": "Within the brain parenchyma itself", "E": "Within the lateral ventricles"}, "correctAnswer": "B", "rationale": "A subdural hematoma presents as a crescent-shaped mass that does not cross the midline. It represents bleeding located specifically between the dura mater and the arachnoid mater, usually from torn bridging veins.", "source": "'Subdural Hemorrhage... blood btw dura mater and arachnoid mater → does not cross midline (blocked by dural reflections).' (Fundamentals of Neuroradiology PDF, slide 28)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO4: Compare and contrast the radiological appearance of intracranial hemorrhages (epidural, subdural, subarachnoid, intraparenchymal, intraventricular).", "question": "A 45-year-old woman collapses suddenly, complaining of a \"thunderclap\" headache. A non-contrast head CT shows a hyperdense signal filling the basal cisterns and tracking along the sulci, creating a 5-point star appearance in the axial view. Which of the following is the most common underlying mechanism for this specific type of hemorrhage?", "options": {"A": "Bleeding from a primary brain tumor", "B": "Rupture of aneurysms or arteriovenous malformations", "C": "Tearing of the bridging veins", "D": "Tearing of the middle meningeal artery", "E": "Traumatic shearing of the corpus callosum"}, "correctAnswer": "B", "rationale": "A subarachnoid hemorrhage typically presents with blood tracking along the sulci and fissures (sometimes appearing star-shaped). The most common mechanism is the rupture of an aneurysm or an arteriovenous malformation.", "source": "'Subarachnoid Hemorrhage... Mechanism: Rupture of aneurysms or arteriovenous malformations or trauma... Shape: Tracks along the sulci and fissures' (Fundamentals of Neuroradiology PDF, slide 28)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO4: Compare and contrast the radiological appearance of intracranial hemorrhages (epidural, subdural, subarachnoid, intraparenchymal, intraventricular).", "question": "A 65-year-old man with a long history of poorly controlled high blood pressure presents to the emergency department with acute hemiparesis. A head CT demonstrates a typically rounded, hyperdense collection of blood located deep within the basal ganglia, entirely surrounded by brain tissue. Which of the following best classifies this specific hemorrhage?", "options": {"A": "Epidural hematoma", "B": "Intraparenchymal hemorrhage", "C": "Intraventricular hemorrhage", "D": "Subarachnoid hemorrhage", "E": "Subdural hematoma"}, "correctAnswer": "B", "rationale": "An intraparenchymal hemorrhage (also known as an intracerebral hemorrhage) presents as a typically rounded collection of blood physically within the brain tissue itself. It is highly associated with high blood pressure.", "source": "'Intraparenchymal Hemorrhage... Mechanism: High blood pressure, trauma, etc... Shape: Typically rounded... a.k.a. intracerebral hemorrhage; hyperdense collection of blood within the brain tissue itself' (Fundamentals of Neuroradiology PDF, slide 29)"}, {"section": "Fundamentals of Neuroradiology", "fullLO": "LO4: Compare and contrast the radiological appearance of intracranial hemorrhages (epidural, subdural, subarachnoid, intraparenchymal, intraventricular).", "question": "A premature neonate develops sudden neurological deterioration. A cranial ultrasound reveals a hyperdense collection of blood completely conforming to the shape of the lateral ventricles. Because blood is heavier than cerebrospinal fluid (CSF), it occupies the lowest parts of these cavities. The patient is at high risk of developing which of the following complications directly as a result of this specific bleeding location?", "options": {"A": "Cerebral amyloid angiopathy", "B": "Ischemic stroke of the frontal lobe", "C": "Obstructive hydrocephalus", "D": "Subdural hygroma", "E": "Tearing of bridging veins"}, "correctAnswer": "C", "rationale": "An intraventricular hemorrhage occurs within the brain ventricles. Because the blood clots can physically block the normal flow of CSF, these patients are at a high risk of developing obstructive hydrocephalus.", "source": "'Intraventricular Hemorrhage... hyperdense collection of blood within one or more brain ventricles; blood is heavier than CSF so occupies lowest parts; high risk of obstructive hydrocephalus' (Fundamentals of Neuroradiology PDF, slide 29)"}];
+
+/* Quiz-local storage keys (namespaced so they don't clash with the
+   shared bb_ keys). Shared theme/bg keys are read below so the look
+   carries over from the directory. */
+const K = {
+    mode:      'q_' + QUIZ_ID + '_mode',
+    showLO:    'q_' + QUIZ_ID + '_showLO',
+    answers:   'q_' + QUIZ_ID + '_answers',
+    flags:     'q_' + QUIZ_ID + '_flags',
+    submitted: 'q_' + QUIZ_ID + '_submitted',
+    strikes:   'q_' + QUIZ_ID + '_strikes',
+    hl:        'q_' + QUIZ_ID + '_hl',
+    gradeTrack:'q_' + QUIZ_ID + '_gradeTrack',   // tutor live score tracker on/off
+    snapshot:  'q_' + QUIZ_ID + '_snapshot',     // last exam grade (keeps the report visible)
+    retrySet:  'q_' + QUIZ_ID + '_retrySet'      // indices being retried (for the retry-results element)
+};
+
+const root = document.documentElement;
+let mode = localStorage.getItem(K.mode) || 'tutor';      // 'tutor' | 'exam'
+let answers = load(K.answers, {});     // { qIndex: 'A' }
+let flags = load(K.flags, {});         // { qIndex: true }
+let submitted = load(K.submitted, {}); // tutor: { qIndex: true }; exam: {all:true} once graded
+let graded = !!submitted.all;          // exam mode graded state
+let strikes = load(K.strikes, {});     // { qIndex: { 'A': true } }  eliminated options
+let highlights = load(K.hl, {});       // { qIndex: "<stem html with <mark>>" }
+let gradeTrack = localStorage.getItem(K.gradeTrack) === 'true';  // tutor live score tracker (default OFF)
+let gradedSnapshot = load(K.snapshot, null);   // last exam score; keeps the results card visible until reset
+let retrySet = load(K.retrySet, []);           // question indices from the active "Retry incorrect" pass
+
+function load(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (e) { return fallback; } }
+function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+
+/* Ordered unique sections + a short label for each */
+const sections = [];
+quizData.forEach(q => { if (!sections.includes(q.section)) sections.push(q.section); });
+function shortLabel(name) {
+    const map = {
+        'Cerebrum: Neuroanatomy, Function, & Blood Supply': 'Cerebrum',
+        'Brainstem: Neuroanatomy, Function, & Blood Supply': 'Brainstem',
+        'Fundamentals of Neuroradiology': 'Neuroradiology'
+    };
+    return map[name] || name;
+}
+
+/* ============================================================
+   RENDER — question cards grouped by section
+============================================================ */
+function renderQuiz() {
+    const rootEl = document.getElementById('quiz-root');
+    rootEl.innerHTML = '';
+    let lastSection = null;
+    let secNum = 0;
+
+    quizData.forEach((item, index) => {
+        if (item.section !== lastSection) {
+            secNum++;
+            lastSection = item.section;
+            const div = document.createElement('div');
+            div.className = 'section-divider';
+            div.innerHTML = `<span class="sd-chip">Section ${secNum}</span><span class="sd-name">${escapeHtml(item.section)}</span><span class="sd-rule"></span>`;
+            rootEl.appendChild(div);
+        }
+
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = 'q-card-' + index;
+        if (flags[index]) card.classList.add('flagged');
+
+        // top row: index + flag
+        const top = document.createElement('div');
+        top.className = 'q-top';
+        top.innerHTML = `<span class="q-index">Q${index + 1}</span><span class="q-spacer"></span>`;
+        const flagBtn = document.createElement('button');
+        flagBtn.className = 'flag-btn';
+        flagBtn.innerHTML = `⚑ <span class="flag-txt">${flags[index] ? 'Flagged' : 'Flag'}</span>`;
+        flagBtn.onclick = () => toggleFlag(index);
+        top.appendChild(flagBtn);
+        card.appendChild(top);
+
+        // LO box
+        const lo = document.createElement('div');
+        lo.className = 'lo-box';
+        lo.innerHTML = `<span class="lo-tag">Learning Objective</span>${escapeHtml(item.fullLO)}`;
+        card.appendChild(lo);
+
+        // question text (restore any saved highlights)
+        const qt = document.createElement('div');
+        qt.className = 'question-text';
+        qt.dataset.qi = index;
+        qt.innerHTML = highlights[index] || `${escapeHtml(item.question)}`;
+        card.appendChild(qt);
+
+        // options
+        const grid = document.createElement('div');
+        grid.className = 'options-grid';
+        for (const [key, value] of Object.entries(item.options)) {
+            const label = document.createElement('label');
+            label.className = 'option-label';
+            label.dataset.key = key;
+            if (answers[index] === key) label.classList.add('selected');
+            if (strikes[index] && strikes[index][key]) label.classList.add('eliminated');
+            label.innerHTML = `<span class="opt-key">${key}</span><span class="opt-text">${escapeHtml(value)}</span>`;
+            label.onclick = () => selectOption(index, key);
+            // right-click / long-press to eliminate (strike through)
+            label.addEventListener('contextmenu', ev => { ev.preventDefault(); toggleStrike(index, key); });
+            attachLongPress(label, () => toggleStrike(index, key));
+            grid.appendChild(label);
+        }
+        card.appendChild(grid);
+
+        // tutor submit button
+        const submitBtn = document.createElement('button');
+        submitBtn.className = 'q-submit';
+        submitBtn.id = 'submit-' + index;
+        submitBtn.textContent = 'Submit answer';
+        submitBtn.onclick = () => submitOne(index);
+        card.appendChild(submitBtn);
+
+        // feedback
+        const fb = document.createElement('div');
+        fb.className = 'feedback';
+        fb.id = 'feedback-' + index;
+        card.appendChild(fb);
+
+        rootEl.appendChild(card);
+    });
+
+    buildNavigator();
+    applyModeUI();
+    // restore any already-revealed feedback (tutor) or graded review (exam)
+    quizData.forEach((_, i) => { if (isRevealed(i)) revealAnswer(i); });
+    updateProgress();
+}
+
+
+/* ===== ANIMATED BACKGROUND ENGINE (shared w/ directory, throttled) ===== */
+/* ============================================================
+   ANIMATED BACKGROUND ENGINE — multiple styles
+   window.bgFx.start() / .stop() / .setStyle(name)
+   Styles: neural (default), starfield, bubbles, grid, waves
+============================================================ */
+(function () {
+    const canvas = document.getElementById('neural-bg');
+    const ctx = canvas.getContext('2d');
+    let W, H, rafId = null, running = false, style = 'neural';
+    let nodes = [], orbs = [], stars = [], shooting = null, t = 0;
+    const getRGB = () => getComputedStyle(document.documentElement).getPropertyValue('--neural-rgb').trim() || '110,168,254';
+
+    function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        seed();
+    }
+    function seed() {
+        // particles for neural network
+        nodes = Array.from({ length: 60 }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22,
+            r: 1.1 + Math.random() * 1.8, pulse: Math.random() * Math.PI * 2
+        }));
+        // orbs for bubbles
+        orbs = Array.from({ length: 16 }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            r: 30 + Math.random() * 90,
+            vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
+            a: 0.04 + Math.random() * 0.06
+        }));
+        // stars for starfield (slow drift + independent twinkle)
+        const density = Math.round((W * H) / 9000);
+        stars = Array.from({ length: Math.min(220, Math.max(90, density)) }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            r: 0.5 + Math.random() * 1.4,
+            tw: Math.random() * Math.PI * 2,         // twinkle phase
+            ts: 0.5 + Math.random() * 1.5,           // twinkle speed
+            drift: 0.04 + Math.random() * 0.12       // downward drift
+        }));
+        shooting = null;
+    }
+
+    function drawNeural() {
+        const rgb = getRGB(), MAX = 150;
+        nodes.forEach(n => {
+            n.x += n.vx * 2; n.y += n.vy * 2; n.pulse += 0.032;
+            if (n.x < -8) n.x = W + 8; if (n.x > W + 8) n.x = -8;
+            if (n.y < -8) n.y = H + 8; if (n.y > H + 8) n.y = -8;
+        });
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+                const d = Math.hypot(dx, dy);
+                if (d < MAX) {
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.strokeStyle = `rgba(${rgb},${(0.1 * (1 - d / MAX)).toFixed(3)})`;
+                    ctx.lineWidth = 0.7; ctx.stroke();
+                }
+            }
+        }
+        nodes.forEach(n => {
+            const r = n.r + Math.sin(n.pulse) * 0.4;
+            ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${rgb},${(0.26 + Math.sin(n.pulse) * 0.1).toFixed(3)})`;
+            ctx.fill();
+        });
+    }
+
+    function drawStarfield() {
+        const rgb = getRGB();
+        stars.forEach(s => {
+            s.tw += 0.06 * s.ts;
+            s.y += s.drift * 2;
+            if (s.y > H + 2) { s.y = -2; s.x = Math.random() * W; }
+            const a = 0.25 + 0.55 * (0.5 + 0.5 * Math.sin(s.tw));
+            ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${rgb},${a.toFixed(3)})`;
+            ctx.fill();
+        });
+        // occasional shooting star
+        if (!shooting && Math.random() < 0.004) {
+            shooting = {
+                x: Math.random() * W * 0.6, y: Math.random() * H * 0.4,
+                vx: 6 + Math.random() * 4, vy: 3 + Math.random() * 2, life: 1
+            };
+        }
+        if (shooting) {
+            shooting.x += shooting.vx; shooting.y += shooting.vy; shooting.life -= 0.012;
+            const tailX = shooting.x - shooting.vx * 6, tailY = shooting.y - shooting.vy * 6;
+            const grad = ctx.createLinearGradient(shooting.x, shooting.y, tailX, tailY);
+            grad.addColorStop(0, `rgba(${rgb},${Math.max(0, shooting.life * 0.9).toFixed(3)})`);
+            grad.addColorStop(1, `rgba(${rgb},0)`);
+            ctx.strokeStyle = grad; ctx.lineWidth = 1.6;
+            ctx.beginPath(); ctx.moveTo(shooting.x, shooting.y); ctx.lineTo(tailX, tailY); ctx.stroke();
+            if (shooting.life <= 0 || shooting.x > W + 40 || shooting.y > H + 40) shooting = null;
+        }
+    }
+
+    function drawBubbles() {
+        const rgb = getRGB();
+        orbs.forEach(o => {
+            o.x += o.vx * 2; o.y += o.vy * 2;
+            if (o.x < -o.r) o.x = W + o.r; if (o.x > W + o.r) o.x = -o.r;
+            if (o.y < -o.r) o.y = H + o.r; if (o.y > H + o.r) o.y = -o.r;
+            const g = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+            g.addColorStop(0, `rgba(${rgb},${o.a})`);
+            g.addColorStop(1, `rgba(${rgb},0)`);
+            ctx.fillStyle = g;
+            ctx.beginPath(); ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2); ctx.fill();
+        });
+    }
+
+    function drawGrid() {
+        const rgb = getRGB(), gap = 46;
+        ctx.lineWidth = 1;
+        for (let x = 0; x <= W; x += gap) {
+            for (let y = 0; y <= H; y += gap) {
+                const a = 0.05 + 0.05 * Math.sin(t * 0.6 + (x + y) * 0.01);
+                ctx.fillStyle = `rgba(${rgb},${Math.max(0, a).toFixed(3)})`;
+                ctx.beginPath(); ctx.arc(x, y, 1.4, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+    }
+
+    function drawWaves() {
+        const rgb = getRGB();
+        for (let k = 0; k < 3; k++) {
+            ctx.beginPath();
+            const amp = 26 + k * 10, yBase = H * (0.4 + k * 0.18), speed = t * (0.4 + k * 0.15);
+            for (let x = 0; x <= W; x += 12) {
+                const y = yBase + Math.sin(x * 0.008 + speed) * amp + Math.sin(x * 0.02 + speed * 1.4) * (amp * 0.4);
+                x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = `rgba(${rgb},${(0.10 - k * 0.025).toFixed(3)})`;
+            ctx.lineWidth = 1.4; ctx.stroke();
+        }
+    }
+
+    /* Throttled render: cap to ~30fps and skip work when the tab is hidden.
+       Visually identical to 60fps for these slow motions, but roughly halves
+       GPU/CPU work so laptop fans don't spin up. Per-frame motion is doubled
+       (see drawNeural/starfield/bubbles and t) to keep the speed the same. */
+    const FRAME_MS = 1000 / 30;
+    let lastFrame = 0;
+    function draw(now) {
+        if (!running) return;
+        rafId = requestAnimationFrame(draw);
+        if (document.hidden) return;
+        if (now - lastFrame < FRAME_MS) return;
+        lastFrame = now;
+        ctx.clearRect(0, 0, W, H);
+        t += 0.032;
+        if (style === 'neural') drawNeural();
+        else if (style === 'starfield') drawStarfield();
+        else if (style === 'bubbles') drawBubbles();
+        else if (style === 'grid') drawGrid();
+        else if (style === 'waves') drawWaves();
+    }
+    function start() {
+        if (running) return;
+        resize();
+        running = true;
+        lastFrame = 0;
+        canvas.style.display = '';
+        rafId = requestAnimationFrame(draw);
+    }
+    function stop() {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        ctx && ctx.clearRect(0, 0, W || 0, H || 0);
+        canvas.style.display = 'none';
+    }
+    function setStyle(name) {
+        style = name;
+        seed();
+    }
+    window.addEventListener('resize', () => { if (running) resize(); });
+    document.addEventListener('visibilitychange', () => { if (running && !document.hidden) lastFrame = 0; });
+    window.bgFx = { start, stop, setStyle };
+})();
+
+
+/* ============================================================
+   NAVIGATOR (USMLE-style)
+============================================================ */
+function buildNavigator() {
+    const wrap = document.getElementById('nav-sections');
+    wrap.innerHTML = '';
+    let lastSection = null, secNum = 0;
+    quizData.forEach((item, index) => {
+        if (item.section !== lastSection) {
+            secNum++;
+            lastSection = item.section;
+            const sec = document.createElement('div');
+            sec.className = 'nav-section';
+            sec.innerHTML = `<div class="nav-section-label"><span class="sec-num">${secNum}</span>${escapeHtml(shortLabel(item.section))}</div><div class="nav-grid" id="nav-grid-${secNum}"></div>`;
+            wrap.appendChild(sec);
+        }
+        const cell = document.createElement('button');
+        cell.className = 'nav-cell';
+        cell.id = 'nav-cell-' + index;
+        cell.textContent = index + 1;
+        cell.innerHTML += '<span class="flag-dot"></span>';
+        cell.onclick = () => jumpToQuestion(index);
+        document.getElementById('nav-grid-' + secNum).appendChild(cell);
+        updateNavCell(index);
+    });
+    document.getElementById('total-count').textContent = quizData.length;
+    document.getElementById('meta-q').textContent = quizData.length;
+    document.getElementById('meta-sec').textContent = sections.length;
+}
+
+function updateNavCell(index) {
+    const cell = document.getElementById('nav-cell-' + index);
+    if (!cell) return;
+    cell.classList.toggle('answered', answers[index] != null && !isRevealed(index));
+    cell.classList.toggle('flagged', !!flags[index]);
+    cell.classList.remove('correct', 'incorrect', 'current');
+    if (isRevealed(index) && answers[index] != null) {
+        const correct = answers[index] === quizData[index].correctAnswer;
+        cell.classList.add(correct ? 'correct' : 'incorrect');
+    }
+}
+
+let spyLockUntil = 0;
+function jumpToQuestion(index) {
+    currentQuestion = index;
+    const card = document.getElementById('q-card-' + index);
+    document.querySelectorAll('.nav-cell.current').forEach(c => c.classList.remove('current'));
+    document.getElementById('nav-cell-' + index).classList.add('current');
+    spyLockUntil = Date.now() + 700;   // let the smooth-scroll settle before spy resumes
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.innerWidth <= 820) document.getElementById('sidebar').classList.add('collapsed');
+}
+
+/* Indices of the questions actually on screen. During a "Retry incorrect" pass
+   the other cards are display:none; navigation + the scroll spy must skip them
+   (a hidden card reports top:0 and would otherwise hijack the current index). */
+function visibleQuestions() {
+    const vis = [];
+    quizData.forEach((_, i) => {
+        const c = document.getElementById('q-card-' + i);
+        if (c && c.offsetParent !== null) vis.push(i);
+    });
+    return vis;
+}
+
+/* ============================================================
+   ANSWER SELECTION + FLAGGING
+============================================================ */
+function selectOption(index, key) {
+    // Exam mode locks after grading; tutor mode always allows changing the answer.
+    if (mode === 'exam' && graded) return;
+    answers[index] = key;
+    save(K.answers, answers);
+    const card = document.getElementById('q-card-' + index);
+    card.querySelectorAll('.option-label').forEach(l => l.classList.toggle('selected', l.dataset.key === key));
+    // If this question was already submitted in tutor mode, re-grade instantly.
+    if (mode === 'tutor' && submitted[index]) {
+        revealAnswer(index);
+    }
+    updateNavCell(index);
+    updateProgress();
+    updateTutorTracker();
+}
+
+function toggleFlag(index) {
+    flags[index] = !flags[index];
+    if (!flags[index]) delete flags[index];
+    save(K.flags, flags);
+    const card = document.getElementById('q-card-' + index);
+    card.classList.toggle('flagged', !!flags[index]);
+    const txt = card.querySelector('.flag-txt');
+    if (txt) txt.textContent = flags[index] ? 'Flagged' : 'Flag';
+    updateNavCell(index);
+    updateProgress();
+}
+
+/* ============================================================
+   REVEAL / FEEDBACK
+============================================================ */
+function isRevealed(index) {
+    return mode === 'tutor' ? !!submitted[index] : graded;
+}
+
+function submitOne(index) {
+    if (answers[index] == null) { flashSubmit(index); return; }
+    submitted[index] = true;
+    save(K.submitted, submitted);
+    revealAnswer(index);
+    updateNavCell(index);
+    updateProgress();
+    updateTutorTracker();
+}
+
+function flashSubmit(index) {
+    const btn = document.getElementById('submit-' + index);
+    if (!btn) return;
+    const orig = btn.textContent;
+    btn.textContent = 'Select an answer first';
+    setTimeout(() => { btn.textContent = orig; }, 1400);
+}
+
+function revealAnswer(index) {
+    const data = quizData[index];
+    const card = document.getElementById('q-card-' + index);
+    const chosen = answers[index];
+    const correct = chosen === data.correctAnswer;
+    const lockOptions = (mode === 'exam');  // tutor mode stays re-answerable
+
+    card.querySelectorAll('.option-label').forEach(l => {
+        // clear any previous reveal state first (so re-grading is clean)
+        l.classList.remove('answer-correct', 'answer-wrong', 'locked');
+        const oldMark = l.querySelector('.opt-mark'); if (oldMark) oldMark.remove();
+        if (lockOptions) l.classList.add('locked');
+        l.classList.toggle('selected', l.dataset.key === chosen);
+        const k = l.dataset.key;
+        if (k === data.correctAnswer) { l.classList.add('answer-correct'); l.insertAdjacentHTML('beforeend', '<span class="opt-mark">✓</span>'); }
+        else if (k === chosen) { l.classList.add('answer-wrong'); l.insertAdjacentHTML('beforeend', '<span class="opt-mark">✗</span>'); }
+    });
+
+    const submitBtn = document.getElementById('submit-' + index);
+    if (submitBtn) submitBtn.classList.add('hidden');
+
+    const fb = document.getElementById('feedback-' + index);
+    fb.className = 'feedback show ' + (correct ? 'correct' : 'incorrect');
+    let header = correct ? '✓ Correct' : '✗ Incorrect';
+    let body = '';
+    if (!correct) body += `<div class="fb-line">Correct answer: <strong>${data.correctAnswer}</strong></div>`;
+    body += `<div class="rationale"><strong>Rationale:</strong> ${escapeHtml(data.rationale)}</div>`;
+    body += `<div class="source"><strong>Source:</strong> ${escapeHtml(data.source)}</div>`;
+    fb.innerHTML = `<div class="feedback-header">${header}</div><div class="feedback-body">${body}</div>`;
+}
+
+
+/* ============================================================
+   MODE (tutor / exam)
+============================================================ */
+function syncModeButtons() {
+    document.getElementById('mode-tutor').classList.toggle('active', mode === 'tutor');
+    document.getElementById('mode-exam').classList.toggle('active', mode === 'exam');
+}
+function setMode(newMode) {
+    if (mode === newMode) return;
+    // Prevent switching away from a graded exam without warning
+    mode = newMode;
+    localStorage.setItem(K.mode, mode);
+    syncModeButtons();
+    // re-render reveal state (tutor shows per-submitted; exam shows only if graded)
+    quizData.forEach((_, i) => {
+        const fb = document.getElementById('feedback-' + i);
+        const card = document.getElementById('q-card-' + i);
+        if (isRevealed(i)) { revealAnswer(i); }
+        else {
+            fb.className = 'feedback'; fb.innerHTML = '';
+            card.querySelectorAll('.option-label').forEach(l => { l.classList.remove('locked','answer-correct','answer-wrong'); const m = l.querySelector('.opt-mark'); if (m) m.remove(); });
+        }
+        updateNavCell(i);
+    });
+    applyModeUI();   // sets submit-button + end-block visibility for the new mode
+    applyGradeTrackUI();
+    updateTutorTracker();
+    refreshResults();   // show the exam report only in exam mode
+    updateProgress();
+}
+
+function applyModeUI() {
+    const isTutor = mode === 'tutor';
+    document.getElementById('meta-mode').textContent = isTutor ? 'Tutor' : 'Exam';
+    // The info banner (#mode-hint) is a static announcement set in the HTML; it is
+    // not changed by the mode here.
+    // per-question submit buttons only in tutor mode (and not after reveal)
+    quizData.forEach((_, i) => {
+        const sb = document.getElementById('submit-' + i);
+        if (!sb) return;
+        if (isTutor && !isRevealed(i)) sb.classList.remove('hidden');
+        else sb.classList.add('hidden');
+    });
+    // end-of-quiz submit block only in exam mode, before grading
+    const endBlock = document.getElementById('quiz-end');
+    endBlock.classList.toggle('hidden', isTutor || graded);
+    // legend graded rows
+    document.querySelectorAll('.legend-graded').forEach(el => el.style.display = (mode === 'exam' && !graded) ? 'none' : '');
+}
+
+/* ============================================================
+   FINISH & GRADE (exam mode)  → writes shared bb_scores + bb_completed
+============================================================ */
+function finishQuiz() {
+    const unanswered = quizData.filter((_, i) => answers[i] == null).length;
+    if (unanswered > 0) {
+        const proceed = confirm(`You have ${unanswered} unanswered question${unanswered > 1 ? 's' : ''}. Grade anyway? They'll be marked incorrect.`);
+        if (!proceed) return;
+    }
+    graded = true;
+    submitted = { all: true };
+    save(K.submitted, submitted);
+    quizData.forEach((_, i) => { revealAnswer(i); updateNavCell(i); });
+    applyModeUI();
+    writeScore();
+    showResults();
+    updateProgress();
+}
+
+function computeScore() {
+    let correct = 0;
+    const perSection = {};
+    sections.forEach(s => perSection[s] = { correct: 0, total: 0 });
+    quizData.forEach((q, i) => {
+        perSection[q.section].total++;
+        if (answers[i] === q.correctAnswer) { correct++; perSection[q.section].correct++; }
+    });
+    return { correct, total: quizData.length, perSection };
+}
+
+/* Write to the SHARED keys the B&B directory reads. */
+function writeScore() {
+    const { correct, total } = computeScore();
+    try {
+        const scores = JSON.parse(localStorage.getItem('bb_scores') || '{}');
+        scores[QUIZ_ID] = { correct, total, ts: Date.now() };
+        localStorage.setItem('bb_scores', JSON.stringify(scores));
+        const completed = JSON.parse(localStorage.getItem('bb_completed') || '{}');
+        completed[QUIZ_ID] = true;
+        localStorage.setItem('bb_completed', JSON.stringify(completed));
+    } catch (e) {}
+}
+
+/* Build + show the results card from a saved snapshot (no scroll). */
+function renderResults(snap) {
+    if (!snap) return;
+    const { correct, total, perSection } = snap;
+    const incorrect = total - correct;
+    const pct = total ? Math.round((correct / total) * 100) : 0;
+    const card = document.getElementById('results-card');
+    let secRows = sections.map(s => {
+        const ps = perSection[s];
+        if (!ps) return '';
+        const p = ps.total ? Math.round((ps.correct / ps.total) * 100) : 0;
+        return `<div class="sec-score-row"><span class="sec-score-name">${escapeHtml(shortLabel(s))}</span><span class="sec-score-bar"><span style="width:${p}%"></span></span><span class="sec-score-val">${ps.correct}/${ps.total}</span></div>`;
+    }).join('');
+    // Retry-results element: how the previously-missed questions went this time.
+    let retryBlock = '';
+    if (snap.retry && snap.retry.total) {
+        const r = snap.retry;
+        const rpct = r.total ? Math.round((r.correct / r.total) * 100) : 0;
+        const chips = r.items.map(it =>
+            `<button type="button" class="retry-chip ${it.correct ? 'ok' : 'no'}" onclick="jumpToQuestion(${it.n - 1})" title="Go to question ${it.n}">Q${it.n} ${it.correct ? '✓' : '✗'}</button>`
+        ).join('');
+        retryBlock = `
+        <div class="retry-results">
+            <div class="retry-results-head">
+                <span class="rr-title">↻ Retry results</span>
+                <span class="rr-score"><b>${r.correct} / ${r.total}</b> of your previously-missed questions correct this time · ${rpct}%</span>
+            </div>
+            <div class="retry-chips">${chips}</div>
+        </div>`;
+    }
+    card.innerHTML = `
+        <div class="results-top">
+            <div class="score-ring" style="--pct:${pct}"><div class="score-ring-inner"><div class="sr-pct">${pct}%</div><div class="sr-lbl">Score</div></div></div>
+            <div class="results-headline">
+                <h2>${correct} / ${total} correct</h2>
+                <div class="results-tally">
+                    <span class="tally correct-tally">✓ ${correct} correct</span>
+                    <span class="tally incorrect-tally">✗ ${incorrect} incorrect</span>
+                </div>
+                <p class="results-saved">Score saved to the directory.</p>
+            </div>
+        </div>
+        <div class="section-scores">${secRows}</div>
+        ${retryBlock}
+        <div class="results-actions">
+            <button class="results-btn primary" onclick="reviewAll()">Review explanations</button>
+            <button class="results-btn" onclick="retryIncorrect()">Retry incorrect</button>
+            <button class="results-btn danger-outline" onclick="resetQuiz()">Reset quiz</button>
+            <a class="results-btn" href="https://ibecerramcg.github.io/BnB-Practice-Quizzes/">Back to directory</a>
+        </div>`;
+    card.classList.add('show');
+}
+
+/* Grade the current answers, remember the snapshot, and show the card.
+   The answers are stored on the snapshot too, so "Review explanations" can
+   restore the fully-graded view even after a Retry incorrect wiped them. */
+function showResults() {
+    gradedSnapshot = computeScore();
+    gradedSnapshot.answers = { ...answers };
+    // If this grade followed a "Retry incorrect" pass, score just those questions
+    // separately so the retry performance is clear (not merged into the overall).
+    if (retrySet && retrySet.length) {
+        const items = retrySet.slice().sort((a, b) => a - b)
+            .map(i => ({ n: i + 1, correct: answers[i] === quizData[i].correctAnswer }));
+        gradedSnapshot.retry = { total: items.length, correct: items.filter(x => x.correct).length, items };
+        retrySet = [];            // this retry pass is now consumed
+        save(K.retrySet, retrySet);
+    }
+    save(K.snapshot, gradedSnapshot);
+    renderResults(gradedSnapshot);
+    document.getElementById('results-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* Show / hide the results card from the saved snapshot. The snapshot survives
+   reloads and the "Retry incorrect → Show all questions" cycle, so the report
+   only disappears when Reset quiz is used. */
+function refreshResults() {
+    const card = document.getElementById('results-card');
+    if (mode === 'exam' && gradedSnapshot && !retryMode) {
+        renderResults(gradedSnapshot);
+    } else {
+        card.classList.remove('show');
+        card.innerHTML = '';
+    }
+}
+
+/* "Review explanations" — restore the fully graded view (the answers from the
+   saved snapshot) and reveal every question's answer + rationale, then scroll to
+   the first question. Works even after Retry incorrect → Show all questions. */
+function reviewAll() {
+    if (gradedSnapshot && gradedSnapshot.answers) {
+        answers = { ...gradedSnapshot.answers };
+        save(K.answers, answers);
+    }
+    graded = true;
+    submitted = { all: true };
+    save(K.submitted, submitted);
+    retryMode = false;
+    const banner = document.getElementById('retry-banner');
+    if (banner) banner.style.display = 'none';
+    // make sure every card + section divider is visible, then reveal explanations
+    quizData.forEach((_, i) => {
+        const card = document.getElementById('q-card-' + i);
+        if (card) card.style.display = '';
+        revealAnswer(i);
+        updateNavCell(i);
+    });
+    document.querySelectorAll('.section-divider').forEach(d => d.style.display = '');
+    applyModeUI();
+    refreshResults();   // keep the score card visible
+    updateProgress();
+    document.getElementById('q-card-0').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* Reset everything for this quiz — usable any time (settings menu, end of
+   quiz, or results). Clears local answers/flags/submissions; the saved
+   directory score is left in place unless it's re-graded. */
+function resetQuiz() {
+    if (!confirm('Reset this quiz? This clears your answers, flags, eliminations and highlights so you can start fresh.')) return;
+    answers = {}; flags = {}; submitted = {}; graded = false; strikes = {}; highlights = {};
+    save(K.answers, answers); save(K.flags, flags); save(K.submitted, submitted);
+    save(K.strikes, strikes); save(K.hl, highlights);
+    gradedSnapshot = null; save(K.snapshot, null);   // clear the saved score report
+    retrySet = []; save(K.retrySet, retrySet);       // clear any pending retry pass
+    const rc = document.getElementById('results-card');
+    rc.classList.remove('show'); rc.innerHTML = '';
+    const banner = document.getElementById('retry-banner'); if (banner) banner.style.display = 'none';
+    retryMode = false;
+    renderQuiz();
+    updateTutorTracker();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* Retry only the questions answered incorrectly. Clears those answers so
+   they can be re-attempted; correct ones are hidden for a focused pass. */
+let retryMode = false;
+function retryIncorrect() {
+    const wrong = quizData.map((q, i) => (answers[i] !== q.correctAnswer ? i : -1)).filter(i => i >= 0);
+    if (wrong.length === 0) { alert('Every question was correct — nothing to retry.'); return; }
+    // remember which questions this retry pass covers, so grading can score them separately
+    retrySet = wrong.slice();
+    save(K.retrySet, retrySet);
+    // reset grading + the wrong answers
+    graded = false; submitted = {}; save(K.submitted, submitted);
+    wrong.forEach(i => { delete answers[i]; });
+    save(K.answers, answers);
+    const rc = document.getElementById('results-card');
+    rc.classList.remove('show'); rc.innerHTML = '';
+    retryMode = true;
+    renderQuiz();
+    // show only the incorrect questions
+    const wrongSet = new Set(wrong);
+    quizData.forEach((_, i) => {
+        const card = document.getElementById('q-card-' + i);
+        if (card) card.style.display = wrongSet.has(i) ? '' : 'none';
+    });
+    // hide section dividers with no visible cards
+    document.querySelectorAll('.section-divider').forEach(d => {
+        let n = d.nextElementSibling, anyVisible = false;
+        while (n && !n.classList.contains('section-divider')) { if (n.classList.contains('question-card') && n.style.display !== 'none') anyVisible = true; n = n.nextElementSibling; }
+        d.style.display = anyVisible ? '' : 'none';
+    });
+    // banner + scroll to first
+    showRetryBanner(wrong.length);
+    const first = document.getElementById('q-card-' + wrong[0]);
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showRetryBanner(n) {
+    let banner = document.getElementById('retry-banner');
+    if (!banner) {
+        banner = document.createElement('div');
+        banner.id = 'retry-banner';
+        banner.className = 'retry-banner';
+        const root = document.getElementById('quiz-root');
+        root.parentNode.insertBefore(banner, root);
+    }
+    banner.innerHTML = `<span>🔁 Retrying <b>${n}</b> missed question${n > 1 ? 's' : ''}. Correct ones are hidden.</span><button class="results-btn" onclick="exitRetry()">Show all questions</button>`;
+    banner.style.display = 'flex';
+}
+function exitRetry() {
+    retryMode = false;
+    const banner = document.getElementById('retry-banner');
+    if (banner) banner.style.display = 'none';
+    quizData.forEach((_, i) => { const c = document.getElementById('q-card-' + i); if (c) c.style.display = ''; });
+    document.querySelectorAll('.section-divider').forEach(d => d.style.display = '');
+    refreshResults();   // bring the score report back — it persists until Reset quiz
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleLOs() {
+    const on = !document.body.classList.contains('show-lo');
+    document.body.classList.toggle('show-lo', on);
+    const t = document.getElementById('lo-btn');
+    t.classList.toggle('on', on); t.setAttribute('aria-pressed', on ? 'true' : 'false');
+    localStorage.setItem(K.showLO, on ? 'true' : 'false');
+}
+
+function updateProgress() {
+    const answered = quizData.filter((_, i) => answers[i] != null).length;
+    const flagged = Object.keys(flags).length;
+    document.getElementById('answered-count').textContent = answered;
+    document.getElementById('flag-count').textContent = flagged;
+    document.getElementById('progress-fill').style.width = (answered / quizData.length * 100) + '%';
+}
+
+/* ============================================================
+   TUTOR LIVE SCORE TRACKER  (functional header control)
+   Off by default. When ON in tutor mode, a running score sits at the top of
+   the page and updates as each question is submitted. Per-question feedback
+   (correct/incorrect + rationale) is unchanged — this only adds the tally.
+   Hidden in exam mode (the results card serves that role there).
+============================================================ */
+function toggleGradeTrack() {
+    gradeTrack = !gradeTrack;
+    localStorage.setItem(K.gradeTrack, gradeTrack ? 'true' : 'false');
+    applyGradeTrackUI();
+    updateTutorTracker();
+}
+
+/* Header button state + "View score" jump button visibility. */
+function applyGradeTrackUI() {
+    const on = gradeTrack && mode === 'tutor';
+    const btn = document.getElementById('grade-btn');
+    if (btn) {
+        btn.style.display = (mode === 'tutor') ? '' : 'none';
+        btn.classList.toggle('on', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    const vb = document.getElementById('view-score-btn');
+    if (vb) vb.style.display = on ? '' : 'none';
+}
+
+/* Recompute the running tutor score from the submitted questions. */
+function updateTutorTracker() {
+    const el = document.getElementById('tutor-tracker');
+    if (!el) return;
+    const show = gradeTrack && mode === 'tutor';
+    el.classList.toggle('show', show);
+    if (!show) { el.innerHTML = ''; return; }
+    let gradedN = 0, correct = 0;
+    quizData.forEach((q, i) => { if (submitted[i]) { gradedN++; if (answers[i] === q.correctAnswer) correct++; } });
+    const incorrect = gradedN - correct;
+    const remaining = quizData.length - gradedN;
+    const pct = gradedN ? Math.round((correct / gradedN) * 100) : 0;
+    const barPct = Math.round((gradedN / quizData.length) * 100);
+    el.innerHTML = `
+        <div class="tt-card">
+            <span class="tt-label">Live score</span>
+            <span class="tt-main">${correct} / ${gradedN} <span class="tt-pct">· ${pct}%</span></span>
+            <div class="tt-tallies">
+                <span class="tt-correct">✓ ${correct}</span>
+                <span class="tt-incorrect">✗ ${incorrect}</span>
+                <span class="tt-remaining">${remaining} left</span>
+            </div>
+            <div class="tt-track"><div class="tt-fill" style="width:${barPct}%"></div></div>
+        </div>`;
+}
+
+function jumpToTracker() {
+    const el = document.getElementById('tutor-tracker');
+    if (el && el.classList.contains('show')) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ============================================================
+   CONTROLS / KEYBOARD GUIDE MODAL
+============================================================ */
+function openHelp() {
+    document.getElementById('help-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';   // freeze background scroll while open
+}
+function closeHelp() {
+    document.getElementById('help-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+
+/* ============================================================
+   THEME SYSTEM  (reads/writes the SHARED bb_ keys so the theme
+   and background carry over to and from the directory)
+============================================================ */
+const themeSelect = document.getElementById('theme-select');
+const customBuilder = document.getElementById('custom-builder');
+
+function changeTheme(name) {
+    localStorage.setItem('bb_quizTheme', name);
+    // keep both desktop + mobile selects in sync
+    if (themeSelect.value !== name) themeSelect.value = name;
+    const tm = document.getElementById('theme-select-m');
+    if (tm && tm.value !== name) tm.value = name;
+    if (name === 'custom') {
+        root.removeAttribute('data-theme');
+        customBuilder.classList.add('active');
+        loadCustomTheme();
+    } else {
+        root.setAttribute('data-theme', name);
+        customBuilder.classList.remove('active');
+        root.removeAttribute('style');
+    }
+}
+themeSelect.addEventListener('change', e => changeTheme(e.target.value));
+{ const tm = document.getElementById('theme-select-m'); if (tm) tm.addEventListener('change', e => changeTheme(e.target.value)); }
+
+function updateCustomTheme() {
+    const bg = document.getElementById('color-bg').value;
+    const card = document.getElementById('color-card').value;
+    const text = document.getElementById('color-text').value;
+    const accent = document.getElementById('color-accent').value;
+    root.style.setProperty('--bg-body', bg);
+    root.style.setProperty('--bg-header', bg + 'e6');
+    root.style.setProperty('--bg-sidebar', bg + 'cc');
+    root.style.setProperty('--bg-card', card);
+    root.style.setProperty('--bg-card-hover', card);
+    root.style.setProperty('--bg-input', card);
+    root.style.setProperty('--bg-active', accent + '28');
+    root.style.setProperty('--bg-hover', accent + '14');
+    root.style.setProperty('--text-main', text);
+    root.style.setProperty('--topic-color', text);
+    root.style.setProperty('--text-muted', text + '99');
+    root.style.setProperty('--text-accent', accent);
+    root.style.setProperty('--text-accent-2', accent);
+    root.style.setProperty('--border-color', accent + '4d');
+    root.style.setProperty('--border-subtle', text + '1a');
+    root.style.setProperty('--button-bg', accent);
+    root.style.setProperty('--button-text', '#ffffff');
+    root.style.setProperty('--select-bg', card);
+    root.style.setProperty('--select-text', text);
+    root.style.setProperty('--solid-accent', accent);
+    root.style.setProperty('--card-glow', accent + '40');
+    root.style.setProperty('--hero-glow-1', accent + '33');
+    root.style.setProperty('--hero-glow-2', accent + '1f');
+    root.style.setProperty('--neural-rgb', hexToRgb(accent));
+    localStorage.setItem('bb_customColors', JSON.stringify({ bg, card, text, accent }));
+}
+function loadCustomTheme() {
+    const saved = JSON.parse(localStorage.getItem('bb_customColors') || 'null');
+    if (saved) {
+        document.getElementById('color-bg').value = saved.bg;
+        document.getElementById('color-card').value = saved.card;
+        document.getElementById('color-text').value = saved.text;
+        document.getElementById('color-accent').value = saved.accent;
+    }
+    updateCustomTheme();
+}
+function hexToRgb(hex) { const h = hex.replace('#',''); return `${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)}`; }
+
+/* ============================================================
+   SETTINGS PANEL + BACKGROUND + ACCENTS  (shared bb_ keys)
+============================================================ */
+function toggleSettings() {
+    const panel = document.getElementById('settings-panel');
+    const open = panel.classList.toggle('open');
+    document.getElementById('settings-btn').classList.toggle('open', open);
+    if (open) customBuilder.classList.remove('active');
+}
+function toggleBackground() {
+    const on = !document.getElementById('bg-toggle').classList.contains('on');
+    localStorage.setItem('bb_bgEnabled', on ? 'true' : 'false');
+    applyBackground(on);
+}
+function applyBackground(on) {
+    if (on) { window.bgFx && window.bgFx.start(); } else { window.bgFx && window.bgFx.stop(); }
+    const t = document.getElementById('bg-toggle');
+    t.classList.toggle('on', on); t.setAttribute('aria-checked', on ? 'true' : 'false');
+    const row = document.getElementById('bg-style-row');
+    if (row) row.style.display = on ? 'flex' : 'none';
+}
+function setBgStyle(name) { localStorage.setItem('bb_bgStyle', name); window.bgFx && window.bgFx.setStyle(name); }
+function toggleAccents() {
+    const on = !document.getElementById('accent-toggle').classList.contains('on');
+    localStorage.setItem('bb_accentsEnabled', on ? 'true' : 'false');
+    applyAccents(on);
+}
+function applyAccents(on) {
+    document.body.classList.toggle('no-accents', !on);
+    const t = document.getElementById('accent-toggle');
+    t.classList.toggle('on', on); t.setAttribute('aria-checked', on ? 'true' : 'false');
+}
+
+/* Close popovers on outside click */
+document.addEventListener('click', e => {
+    const sp = document.getElementById('settings-panel'), sb = document.getElementById('settings-btn');
+    if (sp.classList.contains('open') && !sp.contains(e.target) && !sb.contains(e.target)) { sp.classList.remove('open'); sb.classList.remove('open'); }
+    if (customBuilder.classList.contains('active') && !customBuilder.contains(e.target) && !themeSelect.contains(e.target) && themeSelect.value !== 'custom') customBuilder.classList.remove('active');
+});
+
+/* ============================================================
+   HEADER PIN + SCROLL SPY + BACK TO TOP
+============================================================ */
+function toggleHeader(forceState) {
+    const header = document.getElementById('main-header');
+    const pinned = typeof forceState === 'boolean' ? forceState : header.classList.contains('unpinned');
+    header.classList.toggle('unpinned', !pinned);
+    document.documentElement.style.setProperty('--header-height', pinned ? 'var(--header-h)' : '0px');
+    const t = document.getElementById('pin-toggle');
+    if (t) { t.classList.toggle('on', pinned); t.setAttribute('aria-checked', pinned ? 'true' : 'false'); }
+    localStorage.setItem('bb_headerPinned', pinned ? 'true' : 'false');
+}
+
+let ticking = false;
+let currentQuestion = 0;
+window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+        const y = window.scrollY;
+        document.getElementById('main-header').classList.toggle('scrolled', y > 8);
+        // scroll spy: mark current question in navigator (paused briefly after a jump)
+        if (Date.now() < spyLockUntil) { ticking = false; return; }
+        const vis = visibleQuestions();
+        let current = null;
+        vis.forEach(i => {
+            const card = document.getElementById('q-card-' + i);
+            if (card && card.getBoundingClientRect().top < window.innerHeight * 0.4) current = i;
+        });
+        if (current === null) current = vis.length ? vis[0] : 0;
+        currentQuestion = current;
+        document.querySelectorAll('.nav-cell.current').forEach(c => c.classList.remove('current'));
+        const cell = document.getElementById('nav-cell-' + current);
+        if (cell) cell.classList.add('current');
+        ticking = false;
+    });
+});
+
+/* ============================================================
+   KEYBOARD CONTROLS
+   A–E answer · Enter submit (tutor) · F flag · J/K or ↑/↓ move
+   H toggle highlighter · Esc close menus
+============================================================ */
+document.addEventListener('keydown', e => {
+    // ignore when typing in inputs/selects or with modifier keys
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'select' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
+
+    // when the controls guide is open, only Esc (to close it) is active
+    const helpOverlay = document.getElementById('help-overlay');
+    if (helpOverlay && helpOverlay.classList.contains('open')) {
+        if (e.key === 'Escape') { closeHelp(); e.preventDefault(); }
+        return;
+    }
+
+    const key = e.key.toLowerCase();
+    const vis = visibleQuestions();
+
+    // Keep the "current" question on something that's actually visible. During a
+    // retry pass the current index can be stale/hidden — snap it to the nearest
+    // visible question so answering + navigation act on what's on screen.
+    let i = currentQuestion;
+    if (vis.length && vis.indexOf(i) === -1) {
+        const after = vis.find(v => v >= i);
+        i = (after != null) ? after : vis[vis.length - 1];
+        currentQuestion = i;
+    }
+
+    if (['a','b','c','d','e'].includes(key)) {
+        const opt = document.querySelector(`#q-card-${i} .option-label[data-key="${key.toUpperCase()}"]`);
+        if (opt) { selectOption(i, key.toUpperCase()); e.preventDefault(); }
+    } else if (e.key === 'Enter') {
+        if (mode === 'tutor' && !submitted[i] && answers[i] != null) { submitOne(i); e.preventDefault(); }
+    } else if (key === 'f') {
+        toggleFlag(i); e.preventDefault();
+    } else if (key === 'j' || e.key === 'ArrowDown') {
+        const next = vis.find(v => v > i);
+        if (next != null) jumpToQuestion(next);
+        e.preventDefault();
+    } else if (key === 'k' || e.key === 'ArrowUp') {
+        const before = vis.filter(v => v < i);
+        if (before.length) jumpToQuestion(before[before.length - 1]);
+        e.preventDefault();
+    } else if (key === 'h') {
+        toggleHighlighter(); e.preventDefault();
+    } else if (e.key === 'Escape') {
+        document.getElementById('settings-panel').classList.remove('open');
+        document.getElementById('settings-btn').classList.remove('open');
+        customBuilder.classList.remove('active');
+    }
+});
+
+document.getElementById('sidebar-toggle').addEventListener('click', () => {
+    const collapsed = document.getElementById('sidebar').classList.toggle('collapsed');
+    // Only remember the choice on desktop; mobile always starts closed.
+    if (window.innerWidth > 820) {
+        localStorage.setItem('bb_quizSidebarCollapsed', collapsed ? 'true' : 'false');
+    }
+});
+
+/* ============================================================
+   RESIZABLE SIDEBAR — drag the handle to set navigator width.
+   Default is the built-in width (288px); double-click resets it.
+============================================================ */
+(function () {
+    const resizer = document.getElementById('sidebar-resizer');
+    if (!resizer) return;
+    const root = document.documentElement;
+    const KEY = 'bb_quizSidebarWidth';
+    const MIN = 216, MAX = 480, DEFAULT = 288;
+
+    // Restore a saved width on load (desktop only — sidebar is an overlay on mobile).
+    const saved = parseInt(localStorage.getItem(KEY), 10);
+    if (window.innerWidth > 820 && saved >= MIN && saved <= MAX) {
+        root.style.setProperty('--sidebar-width', saved + 'px');
+    }
+
+    let startX = 0, startW = 0, dragging = false;
+
+    function currentWidth() {
+        const v = parseInt(getComputedStyle(root).getPropertyValue('--sidebar-width'), 10);
+        return isNaN(v) ? DEFAULT : v;
+    }
+    function onMove(e) {
+        if (!dragging) return;
+        const w = Math.max(MIN, Math.min(MAX, startW + (e.clientX - startX)));
+        root.style.setProperty('--sidebar-width', w + 'px');
+    }
+    function onUp() {
+        if (!dragging) return;
+        dragging = false;
+        document.body.classList.remove('resizing');
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+        localStorage.setItem(KEY, currentWidth());
+    }
+    resizer.addEventListener('pointerdown', (e) => {
+        if (window.innerWidth <= 820) return;                 // no resizing on mobile
+        if (document.getElementById('sidebar').classList.contains('collapsed')) return;
+        e.preventDefault();
+        dragging = true;
+        startX = e.clientX;
+        startW = currentWidth();
+        document.body.classList.add('resizing');
+        window.addEventListener('pointermove', onMove);
+        window.addEventListener('pointerup', onUp);
+    });
+    // Double-click restores the default width.
+    resizer.addEventListener('dblclick', () => {
+        root.style.setProperty('--sidebar-width', DEFAULT + 'px');
+        localStorage.setItem(KEY, DEFAULT);
+    });
+})();
+
+function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+/* ============================================================
+   STRIKETHROUGH (eliminate an option)
+============================================================ */
+function toggleStrike(index, key) {
+    if (mode === 'exam' && graded) return;   // don't fiddle after grading
+    if (!strikes[index]) strikes[index] = {};
+    if (strikes[index][key]) delete strikes[index][key]; else strikes[index][key] = true;
+    if (Object.keys(strikes[index]).length === 0) delete strikes[index];
+    save(K.strikes, strikes);
+    const label = document.querySelector(`#q-card-${index} .option-label[data-key="${key}"]`);
+    if (label) label.classList.toggle('eliminated', !!(strikes[index] && strikes[index][key]));
+}
+
+/* Long-press (mobile) helper for strikethrough */
+function attachLongPress(el, cb) {
+    let timer = null;
+    const start = () => { timer = setTimeout(() => { timer = null; cb(); }, 500); };
+    const cancel = () => { if (timer) { clearTimeout(timer); timer = null; } };
+    el.addEventListener('touchstart', start, { passive: true });
+    el.addEventListener('touchend', cancel);
+    el.addEventListener('touchmove', cancel);
+}
+
+/* ============================================================
+   HIGHLIGHTER
+   In highlight mode, selecting text inside a question stem or option
+   wraps it in <mark class="hl">. Clicking an existing highlight removes it.
+============================================================ */
+function toggleHighlighter() {
+    const on = !document.body.classList.contains('hl-mode');
+    document.body.classList.toggle('hl-mode', on);
+    document.getElementById('hl-btn').classList.toggle('on', on);
+}
+
+function persistHighlight(container) {
+    const qi = container.dataset.qi;
+    if (qi == null) return;
+    highlights[qi] = container.innerHTML;
+    save(K.hl, highlights);
+}
+
+/* Remove a highlight when clicked (works regardless of mode) */
+document.addEventListener('click', e => {
+    const mark = e.target.closest && e.target.closest('mark.hl');
+    if (!mark) return;
+    const host = mark.closest('.question-text');
+    const parent = mark.parentNode;
+    while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+    parent.removeChild(mark);
+    parent.normalize();
+    if (host) persistHighlight(host);
+});
+
+/* Create a highlight from the current selection on mouseup (hl-mode only) */
+document.addEventListener('mouseup', () => {
+    if (!document.body.classList.contains('hl-mode')) return;
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) return;
+    const range = sel.getRangeAt(0);
+    const host = range.commonAncestorContainer.parentElement && range.commonAncestorContainer.parentElement.closest('.question-text');
+    if (!host) return;                       // only highlight within the question stem
+    if (range.toString().trim().length === 0) return;
+    try {
+        const mark = document.createElement('mark');
+        mark.className = 'hl';
+        mark.appendChild(range.extractContents());
+        range.insertNode(mark);
+        host.normalize();
+        persistHighlight(host);
+        sel.removeAllRanges();
+    } catch (err) { /* complex selection spanning nodes — ignore */ }
+});
+
+/* ============================================================
+   INIT
+============================================================ */
+(function init() {
+    // shared theme
+    const savedTheme = localStorage.getItem('bb_quizTheme') || 'slate';
+    themeSelect.value = savedTheme;
+    const themeSelectM = document.getElementById('theme-select-m');
+    if (themeSelectM) themeSelectM.value = savedTheme;
+    changeTheme(savedTheme);
+    // shared header pin
+    toggleHeader(localStorage.getItem('bb_headerPinned') !== 'false');
+    // shared background + accents
+    const savedStyle = localStorage.getItem('bb_bgStyle') || 'neural';
+    const styleSel = document.getElementById('bg-style-select');
+    if (styleSel) styleSel.value = savedStyle;
+    window.bgFx && window.bgFx.setStyle(savedStyle);
+    applyBackground(localStorage.getItem('bb_bgEnabled') !== 'false');
+    applyAccents(localStorage.getItem('bb_accentsEnabled') !== 'false');
+    // LO visibility (quiz-local; default OFF)
+    const loOn = localStorage.getItem(K.showLO) === 'true';
+    document.body.classList.toggle('show-lo', loOn);
+    const loBtn = document.getElementById('lo-btn');
+    loBtn.classList.toggle('on', loOn); loBtn.setAttribute('aria-pressed', loOn ? 'true' : 'false');
+    // Question navigator sidebar: open by default on desktop (remembers your last choice),
+    // always closed on mobile so it doesn't cover the screen before you start.
+    if (window.innerWidth <= 820) {
+        document.getElementById('sidebar').classList.add('collapsed');
+    } else if (localStorage.getItem('bb_quizSidebarCollapsed') === 'true') {
+        document.getElementById('sidebar').classList.add('collapsed');
+    }
+    // mode (sync both desktop + mobile switches)
+    syncModeButtons();
+    // render
+    renderQuiz();
+    // tutor live score tracker + persistent exam report
+    applyGradeTrackUI();
+    updateTutorTracker();
+    refreshResults();
+})();
+</script>
+</body>
+</html>
